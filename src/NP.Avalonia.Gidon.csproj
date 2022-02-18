@@ -18,7 +18,6 @@
     <ProjectReference Include="$(SolutionDir)..\..\SubModules\NP.Avalonia.Visuals\src\NP.Avalonia.Visuals.csproj" />
     <ProjectReference Include="$(SolutionDir)..\..\SubModules\NP.Concepts.Behaviors\src\NP.Concepts.Behaviors.csproj" />
     <ProjectReference Include="$(SolutionDir)..\..\SubModules\NP.IoCy\src\NP.IoCy.csproj" />
-    <ProjectReference Include="$(SolutionDir)..\..\SubModules\NP.NLogAdapter\src\NP.NLogAdapter.csproj" />
     <ProjectReference Include="$(SolutionDir)..\..\SubModules\NP.Utilities\src\NP.Utilities.csproj" />
     <ProjectReference Include="$(SolutionDir)..\..\SubModules\NP.ViewModelInterfaces\src\NP.ViewModelInterfaces.csproj" />
   </ItemGroup>
