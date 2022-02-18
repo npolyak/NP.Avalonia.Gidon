@@ -7,10 +7,11 @@
         Title="GidonTest1"
 	    Width="600"
 	    Height="400">
-	<np:PluginControl TheContainer="{x:Static local:App.TheContainer}"
-					  Content="Bla">
+	<np:PluginControl TheContainer="{x:Static local:App.TheContainer}">
 		<np:PluginControl.PluginInfo>
-			<utils:VisualPluginInfo ViewDataTemplateResourcePath="avares://AuthenticationView/Views/AuthenticationView.axaml"
+			<utils:VisualPluginInfo ViewModelType="{x:Type utils:IPlugin}"
+									ViewModelKey="AuthenticationVM"
+									ViewDataTemplateResourcePath="avares://AuthenticationView/Views/AuthenticationView.axaml"
 									ViewDataTemplateResourceKey="AutheticationViewDataTemplate"/>
 		</np:PluginControl.PluginInfo>
 	</np:PluginControl>

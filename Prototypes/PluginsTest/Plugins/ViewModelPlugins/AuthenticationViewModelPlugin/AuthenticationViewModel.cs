@@ -4,9 +4,9 @@ using NP.Utilities.BasicServices;
 using NP.Utilities.PluginUtils;
 using System.ComponentModel;
 
-namespace AutenticationViewModelPlugin
+namespace AuthenticationViewModelPlugin
 {
-    [Implements(typeof(IPlugin))]
+    [Implements(typeof(IPlugin), partKey:"AuthenticationVM", isSingleton:true)]
     public class AuthenticationViewModel : VMBase, IPlugin
     {
         [Part]
