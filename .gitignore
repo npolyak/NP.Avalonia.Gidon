@@ -9,3 +9,8 @@
 /Tests/TestPlugins/ViewModelPlugins/AuthenticationViewModelPlugin/.vs/AuthenticationViewModelPlugin
 /Tests/TestPlugins/ViewModelPlugins/AuthenticationViewModelPlugin/bin/Debug/net6.0
 /Tests/TestPlugins/ViewModelPlugins/AuthenticationViewModelPlugin/obj
+/Tests/TestPlugins/ViewPlugins/AuthenticationView/obj
+/Tests/TestPlugins/ViewViewModelPlugins/Authentication/AuthenticationViewModelPlugin/.vs/AuthenticationViewModelPlugin
+/Tests/TestPlugins/ViewViewModelPlugins/Authentication/AuthenticationViewModelPlugin/bin/Debug/net6.0
+/Tests/TestPlugins/ViewViewModelPlugins/Authentication/AuthenticationViewModelPlugin/obj/Debug/net6.0
+/Tests/TestPlugins/ViewViewModelPlugins/Authentication/AuthenticationViewModelPlugin/obj

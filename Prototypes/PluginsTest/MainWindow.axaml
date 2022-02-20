@@ -13,7 +13,7 @@
 			<np:PluginControl.PluginInfo>
 				<utils:VisualPluginInfo ViewModelType="{x:Type utils:IPlugin}"
 										ViewModelKey="AuthenticationVM"
-										ViewDataTemplateResourcePath="avares://AuthenticationView/Views/AuthenticationView.axaml"
+										ViewDataTemplateResourcePath="avares://AuthenticationViewPlugin/Views/AuthenticationView.axaml"
 										ViewDataTemplateResourceKey="AuthenticationViewDataTemplate"/>
 			</np:PluginControl.PluginInfo>
 		</np:PluginControl>

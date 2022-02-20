@@ -17,7 +17,7 @@ namespace PluginsTest
             TheContainer.InjectType(typeof(NLogWrapper));
             TheContainer.InjectPluginsFromFolder("Plugins/Services/MockAuthentication");
             TheContainer.InjectPluginsFromFolder("Plugins/ViewModelPlugins/AuthenticationViewModelPlugin");
-            TheContainer.InjectPluginsFromFolder("Plugins/ViewPlugins/AuthenticationView");
+            TheContainer.InjectPluginsFromFolder("Plugins/ViewPlugins/AuthenticationViewPlugin");
 
             TheContainer.CompleteConfiguration();
         }
