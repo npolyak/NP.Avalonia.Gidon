@@ -45,6 +45,7 @@
 						np:CallAction.MethodName="ExitApplication"/>
 				<Button Content="Login"
 						Margin="10,0,0,0"
+						IsEnabled="{Binding Path=CanAuthenticate}"
 						np:CallAction.TheEvent="{x:Static Button.ClickEvent}"
 						np:CallAction.MethodName="Authenticate"/>
 			</StackPanel>

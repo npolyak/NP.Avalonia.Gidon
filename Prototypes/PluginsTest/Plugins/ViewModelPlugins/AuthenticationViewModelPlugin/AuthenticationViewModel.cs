@@ -87,7 +87,7 @@ namespace AuthenticationViewModelPlugin
         #endregion Password Property
 
         public bool CanAuthenticate =>
-            UserName != null && Password != null;
+            (!string.IsNullOrEmpty(UserName)) && (!string.IsNullOrEmpty(Password));
 
         public void Authenticate()
         {

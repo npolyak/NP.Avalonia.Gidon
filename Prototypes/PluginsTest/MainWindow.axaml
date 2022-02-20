@@ -8,7 +8,6 @@
 	    Width="600"
 	    Height="400">
 	<Grid RowDefinitions="*, Auto">
-
 		<np:PluginControl x:Name="ThePluginControl"
 						  TheContainer="{x:Static local:App.TheContainer}">
 			<np:PluginControl.PluginInfo>
