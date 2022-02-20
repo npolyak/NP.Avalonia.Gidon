@@ -76,8 +76,8 @@ namespace NP.Avalonia.Gidon
                 this.Content = viewModel;
             }
 
-            IResourceDictionary resourceDictionary = 
-                (IResourceDictionary) AvaloniaXamlLoader.Load(new Uri(pluginInfo.ViewDataTemplateResourcePath));
+            IResourceDictionary resourceDictionary =
+                (IResourceDictionary)AvaloniaXamlLoader.Load(new Uri(pluginInfo.ViewDataTemplateResourcePath));
 
             this.ContentTemplate = (DataTemplate)resourceDictionary[pluginInfo.ViewDataTemplateResourceKey]!;
         }

@@ -9,11 +9,36 @@ namespace AuthenticationViewModelPlugin
     [Implements(typeof(IPlugin), partKey:"AuthenticationVM", isSingleton:true)]
     public class AuthenticationViewModel : VMBase, IPlugin
     {
-        [Part]
+        IAuthenticationService? _authenticationService;
+        [Part(typeof(IAuthenticationService))]
         public IAuthenticationService? TheAuthenticationService
         {
-            get;
-            private set;
+            get => _authenticationService;
+            internal set
+            {
+                if (_authenticationService == value)
+                    return;
+
+                if (_authenticationService != null)
+                {
+                    _authenticationService.PropertyChanged -= _authenticationService_PropertyChanged;
+                }
+
+                _authenticationService = value;
+
+                if (_authenticationService != null)
+                {
+                    _authenticationService.PropertyChanged += _authenticationService_PropertyChanged;
+                }
+            }
+        }
+
+        private void _authenticationService_PropertyChanged(object? sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName is (nameof(UserName) or nameof(Password)))
+            {
+                OnPropertyChanged(nameof(CanAuthenticate));
+            }
         }
 
         #region UserName Property
@@ -67,6 +92,15 @@ namespace AuthenticationViewModelPlugin
         public void Authenticate()
         {
             TheAuthenticationService?.Authenticate(UserName, Password);
+
+            OnPropertyChanged(nameof(IsAuthenticated)); 
         }
+
+        public void ExitApplication()
+        {
+            Environment.Exit(0);
+        }
+
+        public bool IsAuthenticated => TheAuthenticationService?.IsAuthenticated ?? false;
     }
 }

@@ -7,12 +7,16 @@
         Title="GidonTest1"
 	    Width="600"
 	    Height="400">
-	<np:PluginControl TheContainer="{x:Static local:App.TheContainer}">
-		<np:PluginControl.PluginInfo>
-			<utils:VisualPluginInfo ViewModelType="{x:Type utils:IPlugin}"
-									ViewModelKey="AuthenticationVM"
-									ViewDataTemplateResourcePath="avares://AuthenticationView/Views/AuthenticationView.axaml"
-									ViewDataTemplateResourceKey="AutheticationViewDataTemplate"/>
-		</np:PluginControl.PluginInfo>
-	</np:PluginControl>
+	<Grid RowDefinitions="*, Auto">
+
+		<np:PluginControl x:Name="ThePluginControl"
+						  TheContainer="{x:Static local:App.TheContainer}">
+			<np:PluginControl.PluginInfo>
+				<utils:VisualPluginInfo ViewModelType="{x:Type utils:IPlugin}"
+										ViewModelKey="AuthenticationVM"
+										ViewDataTemplateResourcePath="avares://AuthenticationView/Views/AuthenticationView.axaml"
+										ViewDataTemplateResourceKey="AuthenticationViewDataTemplate"/>
+			</np:PluginControl.PluginInfo>
+		</np:PluginControl>
+	</Grid>
 </Window>
