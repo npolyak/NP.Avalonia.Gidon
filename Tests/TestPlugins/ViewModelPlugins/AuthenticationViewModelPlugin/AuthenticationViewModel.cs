@@ -14,7 +14,7 @@ namespace AuthenticationViewModelPlugin
         public IAuthenticationService? TheAuthenticationService
         {
             get => _authenticationService;
-            internal set
+            private set
             {
                 if (_authenticationService == value)
                     return;
