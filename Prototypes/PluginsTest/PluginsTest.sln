@@ -27,7 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{AF04
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{FCAF1D0D-BECA-4A4B-8AF7-9513051F894D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MockAuthentication", "Plugins\Services\MockAuthentication\MockAuthentication.csproj", "{BA441CDE-DEAA-4EC4-8614-32BF2CCDABF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MockAuthentication", "..\..\Tests\TestPlugins\Services\MockAuthentication\MockAuthentication.csproj", "{BA441CDE-DEAA-4EC4-8614-32BF2CCDABF7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NP.NLogAdapter", "..\..\SubModules\NP.NLogAdapter\src\NP.NLogAdapter.csproj", "{26FEAA6D-72C1-45E4-93D6-0B62EC74D025}"
 EndProject
@@ -35,9 +35,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ViewModelPlugins", "ViewMod
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ViewPlugins", "ViewPlugins", "{B8401D1F-B1BD-4E7C-8BBE-A10672EEEC8C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationView", "Plugins\ViewPlugins\AuthenticationView\AuthenticationView.csproj", "{72E71E11-AC4B-41AF-BDB3-5042494ADD8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationView", "..\..\Tests\TestPlugins\ViewPlugins\AuthenticationView\AuthenticationView.csproj", "{72E71E11-AC4B-41AF-BDB3-5042494ADD8F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationViewModelPlugin", "Plugins\ViewModelPlugins\AuthenticationViewModelPlugin\AuthenticationViewModelPlugin.csproj", "{9AFB965A-9FFE-4724-AFCA-DA750CF295C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationViewModelPlugin", "..\..\Tests\TestPlugins\ViewModelPlugins\AuthenticationViewModelPlugin\AuthenticationViewModelPlugin.csproj", "{9AFB965A-9FFE-4724-AFCA-DA750CF295C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

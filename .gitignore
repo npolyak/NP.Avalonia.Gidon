@@ -4,3 +4,8 @@
 
 /src/obj
 /src/bin/Debug/net5.0
+/Tests/TestPlugins/Services/MockAuthentication/bin/Debug/net6.0
+/Tests/TestPlugins/Services/MockAuthentication/obj
+/Tests/TestPlugins/ViewModelPlugins/AuthenticationViewModelPlugin/.vs/AuthenticationViewModelPlugin
+/Tests/TestPlugins/ViewModelPlugins/AuthenticationViewModelPlugin/bin/Debug/net6.0
+/Tests/TestPlugins/ViewModelPlugins/AuthenticationViewModelPlugin/obj

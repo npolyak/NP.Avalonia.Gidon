@@ -24,8 +24,8 @@
     <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.12" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\SubModules\NP.Avalonia.Visuals\src\NP.Avalonia.Visuals.csproj" />
-    <ProjectReference Include="..\..\..\..\..\SubModules\NP.Utilities\src\NP.Utilities.csproj" />
+    <ProjectReference Include="..\..\..\..\SubModules\NP.Avalonia.Visuals\src\NP.Avalonia.Visuals.csproj" />
+    <ProjectReference Include="..\..\..\..\SubModules\NP.Utilities\src\NP.Utilities.csproj" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="xcopy &quot;$(OutDir)\$(AssemblyName).dll&quot; &quot;$(SolutionDir)\bin\$(Configuration)\net6.0\Plugins\ViewPlugins\$(ProjectName)\&quot; /R /Y /I" />
