@@ -1,0 +1,27 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:utils="clr-namespace:NP.Utilities.PluginUtils;assembly=NP.Utilities"
+		xmlns:basicServices="clr-namespace:NP.Utilities.BasicServices;assembly=NP.Utilities"
+		xmlns:np="https://np.com/visuals"
+		xmlns:local="clr-namespace:AuthenticationPluginTest"
+        x:Class="AuthenticationPluginTest.MainWindow"
+        Title="Authentication Plugin Test"
+	    Width="600"
+	    Height="400">
+	<Window.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceInclude Source="avares://AuthenticationViewPlugin/Views/AuthenticationView.axaml"/>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Window.Resources>
+	<Grid RowDefinitions="*, Auto">
+		<TextBlock Text="Logged In!!!"
+				   HorizontalAlignment="Center"
+				   VerticalAlignment="Center"
+				   FontWeight="Bold"
+				   FontSize="30"/>
+		<ContentControl Content="{x:Static local:App.TheViewModel}"
+						ContentTemplate="{StaticResource AuthenticationViewDataTemplate}"/>
+	</Grid>
+</Window>
