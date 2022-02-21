@@ -48,6 +48,21 @@
 							</np:PluginControl.PluginInfo>
 						</np:PluginControl>
 					</np:DockItem>
+					<np:DockItem Header="Received Text"
+								 DefaultDockGroupId="TopGroup"
+								 DefaultDockOrderInGroup="2">
+						<np:PluginControl x:Name="ReceiveTextPluginControl"
+										  HorizontalAlignment="Center"
+										  VerticalAlignment="Center"
+										  TheContainer="{x:Static local:App.TheContainer}">
+							<np:PluginControl.PluginInfo>
+								<utils:VisualPluginInfo ViewModelType="{x:Type utils:IPlugin}"
+														ViewModelKey="ReceiveTextViewModel"
+														ViewDataTemplateResourcePath="avares://ReceiveTextViewPlugin/Views/ReceiveTextView.axaml"
+														ViewDataTemplateResourceKey="ReceiveTextView"/>
+							</np:PluginControl.PluginInfo>
+						</np:PluginControl>
+					</np:DockItem>
 				</np:StackDockGroup>
 			</np:RootDockGroup>
 		</Grid>

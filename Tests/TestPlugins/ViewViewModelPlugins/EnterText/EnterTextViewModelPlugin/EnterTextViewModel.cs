@@ -10,7 +10,7 @@ namespace EnterTextViewModelPlugin
     public class EnterTextViewModel : VMBase, IPlugin
     {
         [Part(typeof(ITextService))]
-        public ITextService? TestService { get; private set; }
+        public ITextService? TheTextService { get; private set; }
 
         #region Text Property
         private string? _text;
@@ -43,7 +43,7 @@ namespace EnterTextViewModelPlugin
                 throw new Exception("Cannost send text, this method should not have been called.");
             }
 
-            TestService!.Send(Text!);
+            TheTextService!.Send(Text!);
         }
     }
 }

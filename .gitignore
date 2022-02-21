@@ -20,3 +20,5 @@
 /Tests/TestPlugins/ViewViewModelPlugins/EnterText/EnterTextViewModelPlugin/obj
 /Tests/TestServiceInterfaces/bin/Debug/net6.0
 /Tests/TestServiceInterfaces/obj
+/Tests/TestPlugins/ViewViewModelPlugins/ReceiveText/ReceiveTextViewModelPlugin/bin/Debug/net6.0
+/Tests/TestPlugins/ViewViewModelPlugins/ReceiveText/ReceiveTextViewModelPlugin/obj

@@ -41,15 +41,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationViewPlugin", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EnterText", "EnterText", "{013B1682-F2DE-48EA-AFEC-F6FE5F1DCA04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnterTextViewModelPlugin", "..\..\Tests\TestPlugins\ViewViewModelPlugins\EnterText\EnterTextViewModelPlugin\EnterTextViewModelPlugin.csproj", "{32FAD69B-588B-45E5-8073-EB5E18B62A41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnterTextViewModelPlugin", "..\..\Tests\TestPlugins\ViewViewModelPlugins\EnterText\EnterTextViewModelPlugin\EnterTextViewModelPlugin.csproj", "{32FAD69B-588B-45E5-8073-EB5E18B62A41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextService", "..\..\Tests\TestPlugins\Services\TextService\TextService.csproj", "{5249726F-4908-4B77-9118-7EF9DB708141}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextService", "..\..\Tests\TestPlugins\Services\TextService\TextService.csproj", "{5249726F-4908-4B77-9118-7EF9DB708141}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestServiceInterfaces", "..\..\Tests\TestServiceInterfaces\TestServiceInterfaces.csproj", "{6B5CE61B-FD3E-46A9-8281-00EF456633C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestServiceInterfaces", "..\..\Tests\TestServiceInterfaces\TestServiceInterfaces.csproj", "{6B5CE61B-FD3E-46A9-8281-00EF456633C3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestsAndMocks", "TestsAndMocks", "{55489B05-1892-4757-B073-5F3E495EA250}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnterTextViewPlugin", "..\..\Tests\TestPlugins\ViewViewModelPlugins\EnterText\EnterTextViewPlugin\EnterTextViewPlugin.csproj", "{2BC73289-2255-4A84-A51F-81C5AF9AF9D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnterTextViewPlugin", "..\..\Tests\TestPlugins\ViewViewModelPlugins\EnterText\EnterTextViewPlugin\EnterTextViewPlugin.csproj", "{2BC73289-2255-4A84-A51F-81C5AF9AF9D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReceiveText", "ReceiveText", "{D76CCC20-68C4-45E2-8A24-F8480DB74D68}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReceiveTextViewModelPlugin", "..\..\Tests\TestPlugins\ViewViewModelPlugins\ReceiveText\ReceiveTextViewModelPlugin\ReceiveTextViewModelPlugin.csproj", "{B4360082-4151-4CD0-803E-A68E0B2DDC9A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReceiveTextViewPlugin", "..\..\Tests\TestPlugins\ViewViewModelPlugins\ReceiveText\ReceiveTextViewPlugin\ReceiveTextViewPlugin.csproj", "{5E488D7F-EDAF-4BCF-8286-C23B69EAE8FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -125,6 +131,14 @@ Global
 		{2BC73289-2255-4A84-A51F-81C5AF9AF9D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BC73289-2255-4A84-A51F-81C5AF9AF9D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BC73289-2255-4A84-A51F-81C5AF9AF9D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4360082-4151-4CD0-803E-A68E0B2DDC9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4360082-4151-4CD0-803E-A68E0B2DDC9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4360082-4151-4CD0-803E-A68E0B2DDC9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4360082-4151-4CD0-803E-A68E0B2DDC9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E488D7F-EDAF-4BCF-8286-C23B69EAE8FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E488D7F-EDAF-4BCF-8286-C23B69EAE8FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E488D7F-EDAF-4BCF-8286-C23B69EAE8FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E488D7F-EDAF-4BCF-8286-C23B69EAE8FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -150,6 +164,9 @@ Global
 		{5249726F-4908-4B77-9118-7EF9DB708141} = {FCAF1D0D-BECA-4A4B-8AF7-9513051F894D}
 		{6B5CE61B-FD3E-46A9-8281-00EF456633C3} = {55489B05-1892-4757-B073-5F3E495EA250}
 		{2BC73289-2255-4A84-A51F-81C5AF9AF9D1} = {013B1682-F2DE-48EA-AFEC-F6FE5F1DCA04}
+		{D76CCC20-68C4-45E2-8A24-F8480DB74D68} = {D2078E00-8E4D-4064-B273-3941A98424A2}
+		{B4360082-4151-4CD0-803E-A68E0B2DDC9A} = {D76CCC20-68C4-45E2-8A24-F8480DB74D68}
+		{5E488D7F-EDAF-4BCF-8286-C23B69EAE8FE} = {D76CCC20-68C4-45E2-8A24-F8480DB74D68}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7BC5B230-6682-4616-B704-70A7A9117AD3}

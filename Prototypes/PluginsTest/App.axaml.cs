@@ -23,8 +23,9 @@ namespace PluginsTest
             TheContainer.InjectPluginsFromFolder("Plugins/ViewModelPlugins/EnterTextViewModelPlugin");
             TheContainer.InjectPluginsFromFolder("Plugins/ViewPlugins/EnterTextViewPlugin");
 
-            //TheContainer.InjectPluginsFromFolder("Plugins/ViewModelPlugins/AuthenticationViewModelPlugin");
-            //TheContainer.InjectPluginsFromFolder("Plugins/ViewPlugins/AuthenticationViewPlugin");
+
+            TheContainer.InjectPluginsFromFolder("Plugins/ViewModelPlugins/ReceiveTextViewModelPlugin");
+            TheContainer.InjectPluginsFromFolder("Plugins/ViewPlugins/ReceiveTextViewPlugin");
 
             TheContainer.CompleteConfiguration();
         }
