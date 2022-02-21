@@ -14,3 +14,9 @@
 /Tests/TestPlugins/ViewViewModelPlugins/Authentication/AuthenticationViewModelPlugin/bin/Debug/net6.0
 /Tests/TestPlugins/ViewViewModelPlugins/Authentication/AuthenticationViewModelPlugin/obj/Debug/net6.0
 /Tests/TestPlugins/ViewViewModelPlugins/Authentication/AuthenticationViewModelPlugin/obj
+/Tests/TestPlugins/Services/TextService/bin/Debug/net6.0
+/Tests/TestPlugins/Services/TextService/obj
+/Tests/TestPlugins/ViewViewModelPlugins/EnterText/EnterTextViewModelPlugin/bin/Debug/net6.0
+/Tests/TestPlugins/ViewViewModelPlugins/EnterText/EnterTextViewModelPlugin/obj
+/Tests/TestServiceInterfaces/bin/Debug/net6.0
+/Tests/TestServiceInterfaces/obj

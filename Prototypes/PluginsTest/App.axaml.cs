@@ -16,8 +16,15 @@ namespace PluginsTest
 
             TheContainer.InjectType(typeof(NLogWrapper));
             TheContainer.InjectPluginsFromFolder("Plugins/Services/MockAuthentication");
+            TheContainer.InjectPluginsFromFolder("Plugins/Services/TextService");
             TheContainer.InjectPluginsFromFolder("Plugins/ViewModelPlugins/AuthenticationViewModelPlugin");
             TheContainer.InjectPluginsFromFolder("Plugins/ViewPlugins/AuthenticationViewPlugin");
+
+            TheContainer.InjectPluginsFromFolder("Plugins/ViewModelPlugins/EnterTextViewModelPlugin");
+            TheContainer.InjectPluginsFromFolder("Plugins/ViewPlugins/EnterTextViewPlugin");
+
+            //TheContainer.InjectPluginsFromFolder("Plugins/ViewModelPlugins/AuthenticationViewModelPlugin");
+            //TheContainer.InjectPluginsFromFolder("Plugins/ViewPlugins/AuthenticationViewPlugin");
 
             TheContainer.CompleteConfiguration();
         }

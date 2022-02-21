@@ -11,8 +11,6 @@ namespace MockAuthentication
         [Part]
         private ILog? Log { get; set; }
 
-        private IAuthenticationService Intrfc => this;
-
         private string? _currentUserName;
         public string? CurrentUserName 
         { 
@@ -25,13 +23,15 @@ namespace MockAuthentication
                 _currentUserName = value;
 
                 OnPropertyChanged(nameof(CurrentUserName));
-                OnPropertyChanged(nameof(IAuthenticationService.IsAuthenticated));
+                OnPropertyChanged(nameof(IsAuthenticated));
             }
         }
 
+        public bool IsAuthenticated => CurrentUserName != null;
+
         public bool Authenticate(string userName, string password)
         {
-            if (Intrfc.IsAuthenticated)
+            if (IsAuthenticated)
             {
                 throw new Exception("Already Authenticated");
             }
@@ -39,7 +39,7 @@ namespace MockAuthentication
             CurrentUserName =
                  (userName == "nick" && password == "1234") ? userName : null;
 
-            if (Intrfc.IsAuthenticated)
+            if (IsAuthenticated)
             {
                 Log?.Log
                 (
@@ -48,12 +48,12 @@ namespace MockAuthentication
                     $"Authenticated user '{userName}'");
             }
 
-            return Intrfc.IsAuthenticated;
+            return IsAuthenticated;
         }
 
         public void Logout()
         {
-            if (!Intrfc.IsAuthenticated)
+            if (!IsAuthenticated)
             {
                 throw new Exception("Already logged out");
             }
