@@ -11,7 +11,8 @@
 							   VerticalAlignment="Center"
 							   Margin="10">
 				<ControlTemplate>
-					<TextBlock Text="{Binding Path=Text, Mode=OneWay}"/>
+					<TextBlock Text="{Binding Path=Text, Mode=OneWay}" 
+							   FontWeight="Bold"/>
 				</ControlTemplate>
 			</np:LabeledControl>
 		</Grid>
