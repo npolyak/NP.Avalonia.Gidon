@@ -11,6 +11,8 @@ namespace PluginsTest
     {
         public static PluginManager ThePluginManager { get; } = new PluginManager();
 
+        public static IoCContainer TheContainer => ThePluginManager.TheContainer;
+
         public App()
         {
 

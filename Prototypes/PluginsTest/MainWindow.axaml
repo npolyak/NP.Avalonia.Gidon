@@ -13,7 +13,7 @@
 	</Window.Resources>
 	<Grid RowDefinitions="*, Auto">
 		<np:PluginControl x:Name="AuthenticationPluginControl"
-						  TheContainer="{x:Static local:App.ThePluginManager.TheContainer}">
+						  TheContainer="{x:Static local:App.TheContainer}">
 			<np:PluginControl.PluginInfo>
 				<utils:VisualPluginInfo ViewModelType="{x:Type utils:IPlugin}"
 										ViewModelKey="AuthenticationVM"
@@ -24,7 +24,7 @@
 		<Grid x:Name="DockContainer"
 			  IsVisible="{Binding Path=(np:PluginAttachedProperties.PluginDataContext).IsAuthenticated, 
 								  RelativeSource={RelativeSource Self}}"
-			  np:PluginAttachedProperties.TheContainer="{x:Static local:App.ThePluginManager.TheContainer}">
+			  np:PluginAttachedProperties.TheContainer="{x:Static local:App.TheContainer}">
 			<np:PluginAttachedProperties.PluginVmInfo>
 				<utils:ViewModelPluginInfo ViewModelType="{x:Type basicServices:IAuthenticationService}"/>
 			</np:PluginAttachedProperties.PluginVmInfo>
@@ -39,7 +39,7 @@
 						<np:PluginControl x:Name="EnterTextPluginControl"
 										  HorizontalAlignment="Center"
 										  VerticalAlignment="Center"
-										  TheContainer="{x:Static local:App.ThePluginManager.TheContainer}">
+										  TheContainer="{x:Static local:App.TheContainer}">
 							<np:PluginControl.PluginInfo>
 								<utils:VisualPluginInfo ViewModelType="{x:Type utils:IPlugin}"
 														ViewModelKey="EnterTextViewModel"
@@ -54,7 +54,7 @@
 						<np:PluginControl x:Name="ReceiveTextPluginControl"
 										  HorizontalAlignment="Center"
 										  VerticalAlignment="Center"
-										  TheContainer="{x:Static local:App.ThePluginManager.TheContainer}">
+										  TheContainer="{x:Static local:App.TheContainer}">
 							<np:PluginControl.PluginInfo>
 								<utils:VisualPluginInfo ViewModelType="{x:Type utils:IPlugin}"
 														ViewModelKey="ReceiveTextViewModel"
