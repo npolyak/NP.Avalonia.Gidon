@@ -1,9 +1,8 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Presenters;
 using Avalonia.Markup.Xaml;
-using Avalonia.Markup.Xaml.MarkupExtensions;
 using Avalonia.Markup.Xaml.Templates;
-using Avalonia.Platform;
 using Avalonia.Styling;
 using NP.IoCy;
 using NP.Utilities.PluginUtils;
@@ -11,7 +10,7 @@ using System;
 
 namespace NP.Avalonia.Gidon
 {
-    public class PluginControl : ContentControl, IStyleable
+    public class PluginControl : ContentPresenter
     {
         #region TheContainer Styled Avalonia Property
         public IoCContainer TheContainer
@@ -26,8 +25,6 @@ namespace NP.Avalonia.Gidon
                 nameof(TheContainer)
             );
         #endregion TheContainer Styled Avalonia Property
-
-        Type IStyleable.StyleKey => typeof(ContentControl);
 
         #region PluginInfo Styled Avalonia Property
         public VisualPluginInfo PluginInfo

@@ -5,13 +5,13 @@
 		xmlns:np="https://np.com/visuals"
 		xmlns:local="clr-namespace:PluginsTest"
         x:Class="PluginsTest.MainWindow"
-        Title="GidonTest1"
+        Title="Plugins Test"
 	    Width="600"
 	    Height="400">
 	<Window.Resources>
 		<np:DockManager x:Key="TheDockManager"/>
 	</Window.Resources>
-	<Grid RowDefinitions="*, Auto">
+	<Grid>
 		<np:PluginControl x:Name="AuthenticationPluginControl"
 						  TheContainer="{x:Static local:App.TheContainer}">
 			<np:PluginControl.PluginInfo>
@@ -29,16 +29,9 @@
 				<utils:ViewModelPluginInfo ViewModelType="{x:Type basicServices:IAuthenticationService}"/>
 			</np:PluginAttachedProperties.PluginVmInfo>
 			<np:RootDockGroup TheDockManager="{StaticResource TheDockManager}">
-				<np:StackDockGroup DockId="TopGroup"
-								   CanFloat="False"
-								   TheOrientation="Horizontal"
-								   IsStableGroup="True">
-					<np:DockItem Header="Enter Text"
-								 DefaultDockGroupId="TopGroup"
-								 DefaultDockOrderInGroup="1">
+				<np:StackDockGroup TheOrientation="Horizontal">
+					<np:DockItem Header="Enter Text">
 						<np:PluginControl x:Name="EnterTextPluginControl"
-										  HorizontalAlignment="Center"
-										  VerticalAlignment="Center"
 										  TheContainer="{x:Static local:App.TheContainer}">
 							<np:PluginControl.PluginInfo>
 								<utils:VisualPluginInfo ViewModelType="{x:Type utils:IPlugin}"
@@ -48,12 +41,8 @@
 							</np:PluginControl.PluginInfo>
 						</np:PluginControl>
 					</np:DockItem>
-					<np:DockItem Header="Received Text"
-								 DefaultDockGroupId="TopGroup"
-								 DefaultDockOrderInGroup="2">
+					<np:DockItem Header="Received Text">
 						<np:PluginControl x:Name="ReceiveTextPluginControl"
-										  HorizontalAlignment="Center"
-										  VerticalAlignment="Center"
 										  TheContainer="{x:Static local:App.TheContainer}">
 							<np:PluginControl.PluginInfo>
 								<utils:VisualPluginInfo ViewModelType="{x:Type utils:IPlugin}"
