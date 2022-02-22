@@ -9,14 +9,28 @@ namespace PluginsTest
 {
     public class App : Application
     {
-        public static PluginManager ThePluginManager { get; } = new PluginManager();
+        /// defined the Gidon plugin manager
+        /// use the following paths (relative to the PluginsTest.exe executable)
+        /// to dynamically load the plugins and services:
+        /// "Plugins/Services" - to load the services (non-visual singletons)
+        /// "Plugins/ViewModelPlugins" - to load view model plugins
+        /// "Plugins/ViewPlugins" - to load view plugins
+        public static PluginManager ThePluginManager { get; } = 
+            new PluginManager
+            (
+                "Plugins/Services", 
+                "Plugins/ViewModelPlugins", 
+                "Plugins/ViewPlugins");
 
+        // the IoC container
         public static IoCContainer TheContainer => ThePluginManager.TheContainer;
 
         public App()
         {
-
+            // inject a type from a statically loaded project NLogAdapter
             ThePluginManager.InjectType(typeof(NLogWrapper));
+
+            // inject all dynamically loaded assemblies
             ThePluginManager.CompleteConfiguration();
         }
 

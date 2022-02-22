@@ -1,49 +1,52 @@
 ﻿using NP.Utilities;
 using NP.Utilities.Attributes;
 using NP.Utilities.PluginUtils;
-using System.ComponentModel;
 using TestServiceInterfaces;
 
-namespace EnterTextViewModelPlugin
+namespace EnterTextViewModelPlugin;
+
+[Implements(typeof(IPlugin), partKey: nameof(EnterTextViewModel), isSingleton: true)]
+public class EnterTextViewModel : VMBase, IPlugin
 {
-    [Implements(typeof(IPlugin), partKey:nameof(EnterTextViewModel), isSingleton:true)]
-    public class EnterTextViewModel : VMBase, IPlugin
+    // ITextService implementation
+    [Part(typeof(ITextService))]
+    public ITextService? TheTextService { get; private set; }
+
+    #region Text Property
+    private string? _text;
+
+    // notifiable property
+    public string? Text
     {
-        [Part(typeof(ITextService))]
-        public ITextService? TheTextService { get; private set; }
-
-        #region Text Property
-        private string? _text;
-        public string? Text
+        get
         {
-            get
-            {
-                return this._text;
-            }
-            set
-            {
-                if (this._text == value)
-                {
-                    return;
-                }
-
-                this._text = value;
-                this.OnPropertyChanged(nameof(Text));
-                this.OnPropertyChanged(nameof(CanSendText));
-            }
+            return this._text;
         }
-        #endregion Text Property
-
-        public bool CanSendText => !string.IsNullOrWhiteSpace(this._text);
-
-        public void SendText()
+        set
         {
-            if (!CanSendText)
+            if (this._text == value)
             {
-                throw new Exception("Cannost send text, this method should not have been called.");
+                return;
             }
 
-            TheTextService!.Send(Text!);
+            this._text = value;
+            this.OnPropertyChanged(nameof(Text));
+            this.OnPropertyChanged(nameof(CanSendText));
         }
+    }
+    #endregion Text Property
+
+    // change notified the Text changes
+    public bool CanSendText => !string.IsNullOrWhiteSpace(this._text);
+
+    // method to send the text via TextService
+    public void SendText()
+    {
+        if (!CanSendText)
+        {
+            throw new Exception("Cannost send text, this method should not have been called.");
+        }
+
+        TheTextService!.Send(Text!);
     }
 }
