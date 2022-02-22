@@ -32,7 +32,9 @@
 				<np:StackDockGroup TheOrientation="Horizontal">
 					<np:DockItem Header="Enter Text">
 						<np:PluginControl x:Name="EnterTextPluginControl"
-										  TheContainer="{x:Static local:App.TheContainer}">
+										  TheContainer="{x:Static local:App.TheContainer}"
+										  HorizontalAlignment="Center"
+										  VerticalAlignment="Center">
 							<np:PluginControl.PluginInfo>
 								<utils:VisualPluginInfo ViewModelType="{x:Type utils:IPlugin}"
 														ViewModelKey="EnterTextViewModel"
