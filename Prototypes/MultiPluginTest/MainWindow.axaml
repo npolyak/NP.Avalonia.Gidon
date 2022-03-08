@@ -1,61 +1,90 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:utils="clr-namespace:NP.Utilities.PluginUtils;assembly=NP.Utilities"
-		xmlns:basicServices="clr-namespace:NP.Utilities.BasicServices;assembly=NP.Utilities"
 		xmlns:np="https://np.com/visuals"
-		xmlns:local="clr-namespace:PluginsTest"
-        x:Class="PluginsTest.MainWindow"
+		xmlns:local="clr-namespace:MultiPluginTest"
+		np:DockAttachedProperties.TheDockManager="{DynamicResource TheDockManager}"
+        x:Class="MultiPluginTest.MainWindow"
         Title="Plugins Test"
 	    Width="600"
 	    Height="400">
 	<Window.Resources>
-		<np:DockManager x:Key="TheDockManager"/>
+		<ResourceDictionary>
+			<np:DockManager x:Key="TheDockManager"/>
+			<!--<ResourceDictionary.MergedDictionaries>
+				<ResourceInclude Source="avares://SecurityTestViewPlugin/Views/SecurityTestView.axaml"/>
+			</ResourceDictionary.MergedDictionaries>-->
+
+			<DataTemplate x:Key="SecurityHeaderDataTemplate">
+				<TextBlock Text="{Binding Path=Symbol}"/>
+			</DataTemplate>
+
+			<DataTemplate x:Key="StockDataTemplate">
+				<Grid Margin="5"
+					  RowDefinitions="Auto, Auto, Auto, Auto">
+					<StackPanel Orientation="Horizontal"
+								HorizontalAlignment="Left">
+						<TextBlock Text="Symbol: "/>
+						<TextBlock Text="{Binding Symbol}"
+								   FontWeight="Bold"/>
+					</StackPanel>
+
+					<TextBlock Text="{Binding Description}"
+							   Grid.Row="1"
+							   Margin="0,10,0,5"
+							   HorizontalAlignment="Left"/>
+
+					<StackPanel Orientation="Horizontal"
+								HorizontalAlignment="Left"
+								Grid.Row="2"
+								Margin="0,5">
+						<TextBlock Text="Ask: "/>
+						<TextBlock Text="{Binding Path=Ask, StringFormat='\{0:0.00\}'}"
+								   Foreground="Green"/>
+					</StackPanel>
+					<StackPanel Orientation="Horizontal"
+								HorizontalAlignment="Left"
+								Grid.Row="3"
+								Margin="0,5">
+						<TextBlock Text="Bid: "/>
+						<TextBlock Text="{Binding Path=Bid, StringFormat='\{0:0.00\}'}"
+								   Foreground="Red"/>
+					</StackPanel>
+				</Grid>
+			</DataTemplate>
+		</ResourceDictionary>
 	</Window.Resources>
-	<Grid>
-		<np:PluginControl x:Name="AuthenticationPluginControl"
-						  TheContainer="{x:Static local:App.TheContainer}">
-			<np:PluginControl.PluginInfo>
-				<utils:VisualPluginInfo ViewModelType="{x:Type utils:IPlugin}"
-										ViewModelKey="AuthenticationVM"
-										ViewDataTemplateResourcePath="avares://AuthenticationViewPlugin/Views/AuthenticationView.axaml"
-										ViewDataTemplateResourceKey="AuthenticationViewDataTemplate"/>
-			</np:PluginControl.PluginInfo>
-		</np:PluginControl>
-		<Grid x:Name="DockContainer"
-			  IsVisible="{Binding Path=(np:PluginAttachedProperties.PluginDataContext).IsAuthenticated, 
-								  RelativeSource={RelativeSource Self}}"
-			  np:PluginAttachedProperties.TheContainer="{x:Static local:App.TheContainer}">
-			<np:PluginAttachedProperties.PluginVmInfo>
-				<utils:ViewModelPluginInfo ViewModelType="{x:Type basicServices:IAuthenticationService}"/>
-			</np:PluginAttachedProperties.PluginVmInfo>
-			<np:RootDockGroup TheDockManager="{StaticResource TheDockManager}">
-				<np:StackDockGroup TheOrientation="Horizontal">
-					<np:DockItem Header="Enter Text">
-						<np:PluginControl x:Name="EnterTextPluginControl"
-										  TheContainer="{x:Static local:App.TheContainer}"
-										  HorizontalAlignment="Center"
-										  VerticalAlignment="Center">
-							<np:PluginControl.PluginInfo>
-								<utils:VisualPluginInfo ViewModelType="{x:Type utils:IPlugin}"
-														ViewModelKey="EnterTextViewModel"
-														ViewDataTemplateResourcePath="avares://EnterTextViewPlugin/Views/EnterTextView.axaml"
-														ViewDataTemplateResourceKey="EnterTextView"/>
-							</np:PluginControl.PluginInfo>
-						</np:PluginControl>
-					</np:DockItem>
-					<np:DockItem Header="Received Text">
-						<np:PluginControl x:Name="ReceiveTextPluginControl"
-										  TheContainer="{x:Static local:App.TheContainer}">
-							<np:PluginControl.PluginInfo>
-								<utils:VisualPluginInfo ViewModelType="{x:Type utils:IPlugin}"
-														ViewModelKey="ReceiveTextViewModel"
-														ViewDataTemplateResourcePath="avares://ReceiveTextViewPlugin/Views/ReceiveTextView.axaml"
-														ViewDataTemplateResourceKey="ReceiveTextView"/>
-							</np:PluginControl.PluginInfo>
-						</np:PluginControl>
-					</np:DockItem>
-				</np:StackDockGroup>
-			</np:RootDockGroup>
-		</Grid>
+	<Grid x:Name="DockContainer"
+		  RowDefinitions="*, Auto"
+		  Margin="10">
+		<np:RootDockGroup TheDockManager="{StaticResource TheDockManager}">
+			<np:StackDockGroup TheOrientation="Horizontal">
+				<np:DockItem Header="Enter Text">
+					<np:PluginControl x:Name="EnterTextPluginControl"
+									  TheContainer="{x:Static local:App.TheContainer}"
+									  HorizontalAlignment="Center"
+									  VerticalAlignment="Center">
+						<np:PluginControl.PluginInfo>
+							<utils:VisualPluginInfo ViewModelType="{x:Type utils:IPlugin}"
+													ViewModelKey="EnterTextViewModel"
+													ViewDataTemplateResourcePath="avares://EnterTextViewPlugin/Views/EnterTextView.axaml"
+													ViewDataTemplateResourceKey="EnterTextView"/>
+						</np:PluginControl.PluginInfo>
+					</np:PluginControl>
+				</np:DockItem>
+				<np:TabbedDockGroup DockId="Securities"
+									IsStableGroup="True"
+									ShowHeader="True"
+									CanClose="False">
+				</np:TabbedDockGroup>
+			</np:StackDockGroup>
+		</np:RootDockGroup>
+		<StackPanel Grid.Row="1"
+					Orientation="Horizontal"
+					HorizontalAlignment="Right"
+					Margin="0,10,0,0">
+			<Button x:Name="AddStockButton"
+					Content="AddStock"/>
+		</StackPanel>
 	</Grid>
 </Window>

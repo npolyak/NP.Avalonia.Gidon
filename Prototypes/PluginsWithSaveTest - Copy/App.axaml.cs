@@ -5,12 +5,12 @@ using NP.Avalonia.Gidon;
 using NP.IoCy;
 using NP.NLogAdapter;
 
-namespace MultiPluginTest
+namespace PluginsWithSaveTest
 {
     public class App : Application
     {
         /// defined the Gidon plugin manager
-        /// use the following paths (relative to the MultiPluginTest.exe executable)
+        /// use the following paths (relative to the PluginsWithSaveTest.exe executable)
         /// to dynamically load the plugins and services:
         /// "Plugins/Services" - to load the services (non-visual singletons)
         /// "Plugins/ViewModelPlugins" - to load view model plugins

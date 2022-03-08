@@ -22,3 +22,5 @@
 /Tests/TestServiceInterfaces/obj
 /Tests/TestPlugins/ViewViewModelPlugins/ReceiveText/ReceiveTextViewModelPlugin/bin/Debug/net6.0
 /Tests/TestPlugins/ViewViewModelPlugins/ReceiveText/ReceiveTextViewModelPlugin/obj
+/Tests/TestPlugins/ViewViewModelPlugins/SecurityTest/SecurityTextViewModelPlugin/bin/Debug/net6.0
+/Tests/TestPlugins/ViewViewModelPlugins/SecurityTest/SecurityTextViewModelPlugin/obj

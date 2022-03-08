@@ -1,7 +1,7 @@
 using Avalonia;
 using System;
 
-namespace MultiPluginTest
+namespace PluginsWithSaveTest
 {
     internal class Program
     {
