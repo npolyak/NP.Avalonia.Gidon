@@ -55,16 +55,16 @@ namespace MultiPluginTest
         }
         private void AddStockButton_Click(object? sender, RoutedEventArgs e)
         {
-            var stock = Stocks[_numberStocks];
+            var stock = Stocks[_numberStocks%2];
             string? stockName = stock.Symbol;
 
             var newTabVm = new SecurityDockItemViewModel
             {
-                DockId = stockName,
+                DockId = $"{stockName}_{_numberStocks + 1}",
                 DefaultDockGroupId = "Securities",
                 DefaultDockOrderInGroup = _numberStocks,
-                HeaderContentTemplateResourceKey = "StockHeaderDataTemplate",
-                ContentTemplateResourceKey = "StockDataTemplate",
+                HeaderContentTemplateResourceKey = "SecurityHeaderDataTemplate",
+                ContentTemplateResourceKey = "SecurityDataTemplate",
                 TheVM = stock,
                 IsPredefined = false
             };

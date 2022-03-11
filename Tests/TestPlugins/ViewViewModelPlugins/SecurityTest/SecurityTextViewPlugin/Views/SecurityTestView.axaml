@@ -6,7 +6,7 @@
 		<TextBlock Text="{Binding Path=Symbol}"/>
 	</DataTemplate>
 
-	<DataTemplate x:Key="StockDataTemplate">
+	<DataTemplate x:Key="SecurityDataTemplate">
 		<Grid Margin="5"
               RowDefinitions="Auto, Auto, Auto, Auto">
 			<StackPanel Orientation="Horizontal"
