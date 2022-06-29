@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>NP.Avalonia.Gidon</id>
-    <version>0.99.1</version>
+    <version>0.99.2</version>
     <title>NP.Avalonia.Gidon</title>
     <authors>Nick Polyak, Ph. D.</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -15,6 +15,7 @@
     <summary>IoC + Mvvm framework</summary>
     <tags>IoC + MVvm framework</tags>
     <dependencies> 
+        <dependency id="NP.IoCy" version="1.0.13"/>
         <dependency id="NP.Avalonia.UniDock" version="1.0.33"/>
         <dependency id="NP.Avalonia.UniDockService" version="0.99.7"/>
         <dependency id="NP.Avalonia.Visuals" version="1.0.23"/>
