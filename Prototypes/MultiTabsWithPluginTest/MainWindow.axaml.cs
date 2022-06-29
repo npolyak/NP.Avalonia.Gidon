@@ -4,9 +4,10 @@ using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using NP.Avalonia.UniDock;
 using NP.Avalonia.UniDockService;
+using SecurityTestViewModelPlugin;
 using System.Collections.ObjectModel;
 
-namespace MultiPluginTest
+namespace MultiTabsWithPluginTest
 {
     public partial class MainWindow : Window
     {
@@ -57,7 +58,7 @@ namespace MultiPluginTest
             var stock = Stocks[_numberStocks%2];
             string? stockName = stock.Symbol;
 
-            var newTabVm = new SecurityDockItemViewModel
+            var newTabVm = new DockItemViewModelWithStrKey
             {
                 DockId = $"{stockName}_{_numberStocks + 1}",
                 DefaultDockGroupId = "Securities",

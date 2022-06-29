@@ -3,6 +3,7 @@
 		xmlns:utils="clr-namespace:NP.Utilities.PluginUtils;assembly=NP.Utilities"
 		xmlns:np="https://np.com/visuals"
 		xmlns:local="clr-namespace:MultiPluginTest"
+		np:DockAttachedProperties.DockChildWindowOwner="{Binding RelativeSource={RelativeSource Mode=Self}}"
 		np:DockAttachedProperties.TheDockManager="{DynamicResource TheDockManager}"
         x:Class="MultiPluginTest.MainWindow"
         Title="Plugins Test"
@@ -11,53 +12,17 @@
 	<Window.Resources>
 		<ResourceDictionary>
 			<np:DockManager x:Key="TheDockManager"/>
-			<!--<ResourceDictionary.MergedDictionaries>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceInclude Source="avares://NP.Avalonia.Visuals/Themes/Geometries.axaml"/>
 				<ResourceInclude Source="avares://SecurityTestViewPlugin/Views/SecurityTestView.axaml"/>
-			</ResourceDictionary.MergedDictionaries>-->
-
-			<DataTemplate x:Key="SecurityHeaderDataTemplate">
-				<TextBlock Text="{Binding Path=Symbol}"/>
-			</DataTemplate>
-
-			<DataTemplate x:Key="StockDataTemplate">
-				<Grid Margin="5"
-					  RowDefinitions="Auto, Auto, Auto, Auto">
-					<StackPanel Orientation="Horizontal"
-								HorizontalAlignment="Left">
-						<TextBlock Text="Symbol: "/>
-						<TextBlock Text="{Binding Symbol}"
-								   FontWeight="Bold"/>
-					</StackPanel>
-
-					<TextBlock Text="{Binding Description}"
-							   Grid.Row="1"
-							   Margin="0,10,0,5"
-							   HorizontalAlignment="Left"/>
-
-					<StackPanel Orientation="Horizontal"
-								HorizontalAlignment="Left"
-								Grid.Row="2"
-								Margin="0,5">
-						<TextBlock Text="Ask: "/>
-						<TextBlock Text="{Binding Path=Ask, StringFormat='\{0:0.00\}'}"
-								   Foreground="Green"/>
-					</StackPanel>
-					<StackPanel Orientation="Horizontal"
-								HorizontalAlignment="Left"
-								Grid.Row="3"
-								Margin="0,5">
-						<TextBlock Text="Bid: "/>
-						<TextBlock Text="{Binding Path=Bid, StringFormat='\{0:0.00\}'}"
-								   Foreground="Red"/>
-					</StackPanel>
-				</Grid>
-			</DataTemplate>
+			</ResourceDictionary.MergedDictionaries>
 		</ResourceDictionary>
 	</Window.Resources>
 	<Grid x:Name="DockContainer"
 		  RowDefinitions="*, Auto"
 		  Margin="10">
-		<np:RootDockGroup TheDockManager="{StaticResource TheDockManager}">
+		<np:RootDockGroup TheDockManager="{StaticResource TheDockManager}"
+						  DockId="TopLevelGroup">
 			<np:StackDockGroup TheOrientation="Horizontal">
 				<np:DockItem Header="Enter Text">
 					<np:PluginControl x:Name="EnterTextPluginControl"
@@ -74,8 +39,7 @@
 				</np:DockItem>
 				<np:TabbedDockGroup DockId="Securities"
 									IsStableGroup="True"
-									ShowHeader="True"
-									CanClose="False">
+									AutoDestroy="False">
 				</np:TabbedDockGroup>
 			</np:StackDockGroup>
 		</np:RootDockGroup>

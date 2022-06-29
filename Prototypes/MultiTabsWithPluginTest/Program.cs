@@ -1,7 +1,7 @@
 using Avalonia;
 using System;
 
-namespace PluginsWithSaveTest
+namespace MultiTabsWithPluginTest
 {
     internal class Program
     {

@@ -1,20 +1,28 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:utils="clr-namespace:NP.Utilities.PluginUtils;assembly=NP.Utilities"
-		xmlns:basicServices="clr-namespace:NP.Utilities.BasicServices;assembly=NP.Utilities"
 		xmlns:np="https://np.com/visuals"
-		xmlns:local="clr-namespace:PluginsWithSaveTest"
-        x:Class="PluginsWithSaveTest.MainWindow"
+		xmlns:local="clr-namespace:MultiTabsWithPluginTest"
+		np:DockAttachedProperties.DockChildWindowOwner="{Binding RelativeSource={RelativeSource Mode=Self}}"
 		np:DockAttachedProperties.TheDockManager="{DynamicResource TheDockManager}"
+        x:Class="MultiTabsWithPluginTest.MainWindow"
         Title="Plugins Test"
 	    Width="600"
 	    Height="400">
 	<Window.Resources>
-		<np:DockManager x:Key="TheDockManager"/>
+		<ResourceDictionary>
+			<np:DockManager x:Key="TheDockManager"/>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceInclude Source="avares://NP.Avalonia.Visuals/Themes/Geometries.axaml"/>
+				<ResourceInclude Source="avares://SecurityTestViewPlugin/Views/SecurityTestView.axaml"/>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
 	</Window.Resources>
 	<Grid x:Name="DockContainer"
-		  RowDefinitions="*, Auto">
-		<np:RootDockGroup TheDockManager="{StaticResource TheDockManager}">
+		  RowDefinitions="*, Auto"
+		  Margin="10">
+		<np:RootDockGroup TheDockManager="{StaticResource TheDockManager}"
+						  DockId="TopLevelGroup">
 			<np:StackDockGroup TheOrientation="Horizontal">
 				<np:DockItem Header="Enter Text">
 					<np:PluginControl x:Name="EnterTextPluginControl"
@@ -29,28 +37,18 @@
 						</np:PluginControl.PluginInfo>
 					</np:PluginControl>
 				</np:DockItem>
-				<np:DockItem Header="Received Text">
-					<np:PluginControl x:Name="ReceiveTextPluginControl"
-									  TheContainer="{x:Static local:App.TheContainer}">
-						<np:PluginControl.PluginInfo>
-							<utils:VisualPluginInfo ViewModelType="{x:Type utils:IPlugin}"
-													ViewModelKey="ReceiveTextViewModel"
-													ViewDataTemplateResourcePath="avares://ReceiveTextViewPlugin/Views/ReceiveTextView.axaml"
-													ViewDataTemplateResourceKey="ReceiveTextView"/>
-						</np:PluginControl.PluginInfo>
-					</np:PluginControl>
-				</np:DockItem>
+				<np:TabbedDockGroup DockId="Securities"
+									IsStableGroup="True"
+									AutoDestroy="False">
+				</np:TabbedDockGroup>
 			</np:StackDockGroup>
 		</np:RootDockGroup>
-		<StackPanel Orientation="Horizontal"
+		<StackPanel Grid.Row="1"
+					Orientation="Horizontal"
 					HorizontalAlignment="Right"
-					Grid.Row="1">
-			<Button x:Name="SaveButton"
-					Content="Save"
-					Margin="5,10"/>
-			<Button x:Name="RestoreButton"
-					Content="Restore"
-					Margin="5,10,10,10"/>
+					Margin="0,10,0,0">
+			<Button x:Name="AddStockButton"
+					Content="AddStock"/>
 		</StackPanel>
 	</Grid>
 </Window>
