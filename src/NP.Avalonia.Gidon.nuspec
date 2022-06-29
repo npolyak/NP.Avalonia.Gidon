@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package >
   <metadata>
-    <id>NP.Avalonia.UniDock</id>
+    <id>NP.Avalonia.Gidon</id>
     <version>0.99.1</version>
     <title>NP.Avalonia.Gidon</title>
     <authors>Nick Polyak, Ph. D.</authors>
