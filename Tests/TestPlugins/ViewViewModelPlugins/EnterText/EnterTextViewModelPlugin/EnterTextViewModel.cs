@@ -9,7 +9,7 @@ namespace EnterTextViewModelPlugin;
 public class EnterTextViewModel : VMBase, IPlugin
 {
     // ITextService implementation
-    [Part(typeof(ITextService))]
+    [Part(typeof(ITextService), partKey:"TheTextService")]
     public ITextService? TheTextService { get; private set; }
 
     #region Text Property

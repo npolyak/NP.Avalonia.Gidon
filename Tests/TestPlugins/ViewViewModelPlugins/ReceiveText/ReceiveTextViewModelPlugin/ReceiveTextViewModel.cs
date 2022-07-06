@@ -11,7 +11,7 @@ public class ReceiveTextViewModel : VMBase, IPlugin
     ITextService? _textService;
 
     // ITextService implementation
-    [Part(typeof(ITextService))]
+    //[Part(typeof(ITextService), "TheTextService")]
     public ITextService? TheTextService
     {
         get => _textService;
@@ -64,4 +64,10 @@ public class ReceiveTextViewModel : VMBase, IPlugin
         }
     }
     #endregion Text Property
+
+    [CompositeConstructor]
+    public ReceiveTextViewModel([Part(partKey:"TheTextService")] ITextService textService)
+    {
+        TheTextService = textService;
+    }
 }

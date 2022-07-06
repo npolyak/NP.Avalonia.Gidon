@@ -3,7 +3,7 @@ using TestServiceInterfaces;
 
 namespace TextService
 {
-    [Implements(typeof(ITextService), IsSingleton = true)]
+    [Implements(typeof(ITextService), partKey:"TheTextService", isSingleton:true)]
     public class TextService : ITextService
     {
         public event Action<string>? SentTextEvent;
