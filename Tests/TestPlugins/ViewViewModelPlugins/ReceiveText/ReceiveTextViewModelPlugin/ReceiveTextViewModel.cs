@@ -5,7 +5,7 @@ using TestServiceInterfaces;
 
 namespace ReceiveTextViewModelPlugin;
 
-[Implements(typeof(IPlugin), partKey: nameof(ReceiveTextViewModel), isSingleton: true)]
+//[Implements(typeof(IPlugin), partKey: nameof(ReceiveTextViewModel), isSingleton: true)]
 public class ReceiveTextViewModel : VMBase, IPlugin
 {
     ITextService? _textService;
@@ -65,9 +65,19 @@ public class ReceiveTextViewModel : VMBase, IPlugin
     }
     #endregion Text Property
 
-    [CompositeConstructor]
-    public ReceiveTextViewModel([Part(partKey:"TheTextService")] ITextService textService)
+    //[CompositeConstructor]
+    public ReceiveTextViewModel(/*[Part(partKey:"TheTextService")]*/ ITextService textService)
     {
         TheTextService = textService;
+    }
+
+    [HasFactoryMethods]
+    public static class ReceiveTestViewFactory
+    {
+        [FactoryMethod(partKey:"ReceiveTextViewModel")]
+        public static IPlugin CreateFactory([Part(partKey:"TheTextService")] ITextService textService)
+        {
+            return new ReceiveTextViewModel(textService);
+        }
     }
 }
