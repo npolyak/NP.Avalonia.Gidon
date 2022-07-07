@@ -1,4 +1,5 @@
-﻿using NP.Utilities;
+﻿using CommonNonVisualLib;
+using NP.Utilities;
 using NP.Utilities.Attributes;
 using NP.Utilities.PluginUtils;
 using TestServiceInterfaces;
@@ -8,6 +9,8 @@ namespace ReceiveTextViewModelPlugin;
 //[Implements(typeof(IPlugin), partKey: nameof(ReceiveTextViewModel), isSingleton: true)]
 public class ReceiveTextViewModel : VMBase, IPlugin
 {
+    public MyTestViewModel TheVM { get; } = new MyTestViewModel();
+
     ITextService? _textService;
 
     // ITextService implementation

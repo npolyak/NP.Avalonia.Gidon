@@ -1,4 +1,5 @@
-﻿using NP.Utilities;
+﻿using CommonNonVisualLib;
+using NP.Utilities;
 using NP.Utilities.Attributes;
 using NP.Utilities.PluginUtils;
 using TestServiceInterfaces;
@@ -8,6 +9,8 @@ namespace EnterTextViewModelPlugin;
 [Implements(typeof(IPlugin), partKey: nameof(EnterTextViewModel), isSingleton: true)]
 public class EnterTextViewModel : VMBase, IPlugin
 {
+    public MyTestViewModel TheVM { get; } = new MyTestViewModel();
+
     // ITextService implementation
     [Part(typeof(ITextService), partKey:"TheTextService")]
     public ITextService? TheTextService { get; private set; }

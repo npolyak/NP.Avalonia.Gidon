@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <AvaloniaXaml Remove="Plugins\**" />
+    <Compile Remove="Plugins\**" />
+    <EmbeddedResource Remove="Plugins\**" />
+    <None Remove="Plugins\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove=".gitignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.13" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.13" />
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.13" />
+    <PackageReference Include="System.Reactive" Version="5.0.0" />
+   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\NP.Avalonia.Gidon.csproj" />
+    <ProjectReference Include="..\..\SubModules\NP.NLogAdapter\src\NP.NLogAdapter.csproj" />
+    <ProjectReference Include="..\..\SubModules\NP.ViewModelInterfaces\src\NP.ViewModelInterfaces.csproj" />
+    <ProjectReference Include="..\..\Tests\TestServiceInterfaces\TestServiceInterfaces.csproj" />
+  </ItemGroup>
+</Project>
