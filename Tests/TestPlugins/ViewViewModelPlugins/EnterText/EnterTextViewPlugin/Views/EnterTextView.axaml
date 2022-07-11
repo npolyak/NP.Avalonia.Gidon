@@ -2,18 +2,21 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 					xmlns:np="https://np.com/visuals">
 	<DataTemplate x:Key="EnterTextView">
-		<Grid RowDefinitions="*, Auto">
+		<Grid RowDefinitions="Auto, *, Auto">
 			<Control.Styles>
 				<StyleInclude Source="avares://NP.Avalonia.Visuals/Themes/ThemeStyles.axaml"/>
 			</Control.Styles>
-			<np:LabeledControl Text="Enter Text: ">
+			<TextBlock Text="{Binding Path=TheVM.TheProp}"
+					   HorizontalAlignment="Center"/>
+			<np:LabeledControl Text="Enter Text: "
+							   Grid.Row="1">
 				<ControlTemplate>
 					<TextBox Text="{Binding Path=Text, Mode=TwoWay}"
 							 Width="150"/>
 				</ControlTemplate>
 			</np:LabeledControl>
 			<Button Content="Send"
-					Grid.Row="1"
+					Grid.Row="2"
 					IsEnabled="{Binding Path=CanSendText}"
 					np:CallAction.TheEvent="{x:Static Button.ClickEvent}"
 					np:CallAction.MethodName="SendText"
