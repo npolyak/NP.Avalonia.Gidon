@@ -81,4 +81,9 @@ namespace MultiTabsWithPluginTest
             AvaloniaXamlLoader.Load(this);
         }
     }
+
+    public class DockItemViewModelWithStrKey : DockItemViewModel<SecurityTestViewModel>
+    {
+
+    }
 }
