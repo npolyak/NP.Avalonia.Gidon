@@ -1,5 +1,6 @@
 ﻿using NP.IoCy;
 using System;
+using System.IO;
 
 namespace NP.Avalonia.Gidon
 {
@@ -27,11 +28,21 @@ namespace NP.Avalonia.Gidon
             TheContainer.InjectType(typeToInject);
         }
 
+        private void InjectPluginsFromSubFolderIntoContainer(string subFolderPath)
+        {
+            if (!Directory.Exists(subFolderPath))
+            {
+                return;
+            }
+
+            TheContainer.InjectPluginsFromSubFolders(subFolderPath);
+        }
+
         public void CompleteConfiguration()
         {
-            TheContainer.InjectPluginsFromSubFolders(ServicesPath);
-            TheContainer.InjectPluginsFromSubFolders(ViewModelsPath);
-            TheContainer.InjectPluginsFromSubFolders(ViewsPath);
+            InjectPluginsFromSubFolderIntoContainer(ServicesPath);
+            InjectPluginsFromSubFolderIntoContainer(ViewModelsPath);
+            InjectPluginsFromSubFolderIntoContainer(ViewsPath);
 
             TheContainer.CompleteConfiguration();
         }

@@ -4,6 +4,7 @@ using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using NP.Avalonia.UniDock;
 using NP.Avalonia.UniDockService;
+using SecurityTestViewModelPlugin;
 using System.Collections.ObjectModel;
 
 namespace MultiPluginTest

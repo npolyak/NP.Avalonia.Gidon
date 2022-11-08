@@ -26,6 +26,7 @@
     <ProjectReference Include="..\..\SubModules\NP.IoCy\src\NP.IoCy.csproj" />
     <ProjectReference Include="..\..\SubModules\NP.NLogAdapter\src\NP.NLogAdapter.csproj" />
     <ProjectReference Include="..\..\SubModules\NP.Utilities\src\NP.Utilities.csproj" />
+    <ProjectReference Include="..\..\Tests\TestPlugins\ViewViewModelPlugins\CommonNonVisualLib\CommonNonVisualLib.csproj" />
     <ProjectReference Include="..\..\Tests\TestPlugins\ViewViewModelPlugins\SecurityTest\SecurityTextViewModelPlugin\SecurityTestViewModelPlugin.csproj" />
     <ProjectReference Include="..\..\Tests\TestPlugins\ViewViewModelPlugins\SecurityTest\SecurityTextViewPlugin\SecurityTestViewPlugin.csproj" />
     <ProjectReference Include="..\..\Tests\TestServiceInterfaces\TestServiceInterfaces.csproj" />

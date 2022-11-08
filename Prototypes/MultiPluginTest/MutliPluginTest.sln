@@ -63,6 +63,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecurityTestViewModelPlugin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecurityTestViewPlugin", "..\..\Tests\TestPlugins\ViewViewModelPlugins\SecurityTest\SecurityTextViewPlugin\SecurityTestViewPlugin.csproj", "{3CF22B1A-CCCE-4683-B38B-D646349DEEF5}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonNonVisualLib", "..\..\Tests\TestPlugins\ViewViewModelPlugins\CommonNonVisualLib\CommonNonVisualLib.csproj", "{D6FFF63B-40C9-48D9-9368-AD7439E1BB02}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -153,6 +155,10 @@ Global
 		{3CF22B1A-CCCE-4683-B38B-D646349DEEF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CF22B1A-CCCE-4683-B38B-D646349DEEF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CF22B1A-CCCE-4683-B38B-D646349DEEF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6FFF63B-40C9-48D9-9368-AD7439E1BB02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6FFF63B-40C9-48D9-9368-AD7439E1BB02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6FFF63B-40C9-48D9-9368-AD7439E1BB02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6FFF63B-40C9-48D9-9368-AD7439E1BB02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -184,6 +190,7 @@ Global
 		{003FA6A8-5281-4871-8A5E-78646A546116} = {D2078E00-8E4D-4064-B273-3941A98424A2}
 		{D580AA69-C0C9-4257-B071-F427AA935BC0} = {003FA6A8-5281-4871-8A5E-78646A546116}
 		{3CF22B1A-CCCE-4683-B38B-D646349DEEF5} = {003FA6A8-5281-4871-8A5E-78646A546116}
+		{D6FFF63B-40C9-48D9-9368-AD7439E1BB02} = {55489B05-1892-4757-B073-5F3E495EA250}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7BC5B230-6682-4616-B704-70A7A9117AD3}
