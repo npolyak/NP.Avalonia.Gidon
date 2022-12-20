@@ -29,7 +29,7 @@
 				<utils:ViewModelPluginInfo ViewModelType="{x:Type basicServices:IAuthenticationService}"/>
 			</np:PluginAttachedProperties.PluginVmInfo>
 			<np:RootDockGroup TheDockManager="{StaticResource TheDockManager}">
-				<np:StackDockGroup TheOrientation="Horizontal">
+				<np:StackDockGroup>
 					<np:DockItem Header="Enter Text">
 						<np:PluginControl x:Name="EnterTextPluginControl"
 										  TheContainer="{x:Static local:App.TheContainer}"
