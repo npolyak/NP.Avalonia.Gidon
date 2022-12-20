@@ -26,3 +26,5 @@
 /Tests/TestPlugins/ViewViewModelPlugins/SecurityTest/SecurityTextViewModelPlugin/obj
 /Tests/TestPlugins/ViewViewModelPlugins/CommonNonVisualLib/bin/Debug/net6.0
 /Tests/TestPlugins/ViewViewModelPlugins/CommonNonVisualLib/obj
+/src/bin/Debug/net6.0
+*.nupkg

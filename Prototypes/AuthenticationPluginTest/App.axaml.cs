@@ -3,28 +3,27 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using MockAuthentication;
-using NP.Avalonia.Gidon;
+using NP.DependencyInjection.Interfaces;
 using NP.IoCy;
-using NP.NLogAdapter;
 using NP.Utilities.PluginUtils;
 
 namespace AuthenticationPluginTest
 {
     public class App : Application
     {
-        public static IoCContainer TheContainer { get; } =
-            new IoCContainer();
+        public static IDependencyInjectionContainer TheContainer { get; }
 
         public static AuthenticationViewModel TheViewModel { get; }
 
         static App()
         {
-            TheContainer.InjectAssembly(typeof(MockAuthenticationService).Assembly);
+            var containerBuilder = new ContainerBuilder();
 
-            TheContainer.InjectAssembly(typeof(AuthenticationViewModel).Assembly);
+            containerBuilder.RegisterAssembly(typeof(MockAuthenticationService).Assembly);
 
-            TheContainer.CompleteConfiguration();
+            containerBuilder.RegisterAssembly(typeof(AuthenticationViewModel).Assembly);
 
+            TheContainer = containerBuilder.Build();
 
             TheViewModel = (AuthenticationViewModel) TheContainer.Resolve(typeof(IPlugin), "AuthenticationVM");
         }

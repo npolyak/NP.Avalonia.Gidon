@@ -2,6 +2,7 @@
 using Avalonia.Controls;
 using NP.IoCy;
 using NP.Utilities.PluginUtils;
+using NP.DependencyInjection.Interfaces;
 using System;
 
 namespace NP.Avalonia.Gidon
@@ -47,18 +48,18 @@ namespace NP.Avalonia.Gidon
 
 
         #region TheContainer Attached Avalonia Property
-        public static IoCContainer GetTheContainer(IControl obj)
+        public static IDependencyInjectionContainer GetTheContainer(IControl obj)
         {
             return obj.GetValue(TheContainerProperty);
         }
 
-        public static void SetTheContainer(IControl obj, IoCContainer value)
+        public static void SetTheContainer(IControl obj, IDependencyInjectionContainer value)
         {
             obj.SetValue(TheContainerProperty, value);
         }
 
-        public static readonly AttachedProperty<IoCContainer> TheContainerProperty =
-            AvaloniaProperty.RegisterAttached<PluginAttachedProperties, IControl, IoCContainer>
+        public static readonly AttachedProperty<IDependencyInjectionContainer> TheContainerProperty =
+            AvaloniaProperty.RegisterAttached<PluginAttachedProperties, IControl, IDependencyInjectionContainer>
             (
                 "TheContainer"
             );
@@ -79,7 +80,7 @@ namespace NP.Avalonia.Gidon
         }
 
 
-        private static void OnContainerChanged(AvaloniaPropertyChangedEventArgs<IoCContainer> args)
+        private static void OnContainerChanged(AvaloniaPropertyChangedEventArgs<IDependencyInjectionContainer> args)
         {
             IControl sender = (IControl) args.Sender;
             ResetPluginDataContext(sender);
@@ -87,7 +88,7 @@ namespace NP.Avalonia.Gidon
 
         private static void ResetPluginDataContext(IControl control)
         {
-            IoCContainer container = GetTheContainer(control);
+            IDependencyInjectionContainer container = GetTheContainer(control);
             ViewModelPluginInfo pluginInfo = GetPluginVmInfo(control); 
 
             if (container == null || pluginInfo == null)

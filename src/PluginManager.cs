@@ -1,4 +1,5 @@
-﻿using NP.IoCy;
+﻿using NP.DependencyInjection.Interfaces;
+using NP.IoCy;
 using System;
 using System.IO;
 
@@ -6,7 +7,10 @@ namespace NP.Avalonia.Gidon
 {
     public class PluginManager
     {
-        public IoCContainer TheContainer { get; } = new IoCContainer();
+        private readonly IContainerBuilder _containerBuilder = 
+            new ContainerBuilder();
+
+        public IDependencyInjectionContainer TheContainer { get; private set; }
 
         public string ServicesPath { get; }
         public string ViewModelsPath { get; }
@@ -25,7 +29,7 @@ namespace NP.Avalonia.Gidon
 
         public void InjectType(Type typeToInject)
         {
-            TheContainer.InjectType(typeToInject);
+            _containerBuilder.RegisterAttributedClass(typeToInject);
         }
 
         private void InjectPluginsFromSubFolderIntoContainer(string subFolderPath)
@@ -35,7 +39,7 @@ namespace NP.Avalonia.Gidon
                 return;
             }
 
-            TheContainer.InjectPluginsFromSubFolders(subFolderPath);
+            _containerBuilder.RegisterPluginsFromSubFolders(subFolderPath);
         }
 
         public void CompleteConfiguration()
@@ -44,7 +48,7 @@ namespace NP.Avalonia.Gidon
             InjectPluginsFromSubFolderIntoContainer(ViewModelsPath);
             InjectPluginsFromSubFolderIntoContainer(ViewsPath);
 
-            TheContainer.CompleteConfiguration();
+            TheContainer = _containerBuilder.Build();
         }
     }
 }

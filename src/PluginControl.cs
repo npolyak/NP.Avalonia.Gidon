@@ -4,6 +4,7 @@ using Avalonia.Controls.Presenters;
 using Avalonia.Markup.Xaml;
 using Avalonia.Markup.Xaml.Templates;
 using Avalonia.Styling;
+using NP.DependencyInjection.Interfaces;
 using NP.IoCy;
 using NP.Utilities.PluginUtils;
 using System;
@@ -13,14 +14,14 @@ namespace NP.Avalonia.Gidon
     public class PluginControl : ContentPresenter
     {
         #region TheContainer Styled Avalonia Property
-        public IoCContainer TheContainer
+        public IDependencyInjectionContainer TheContainer
         {
             get { return GetValue(TheContainerProperty); }
             set { SetValue(TheContainerProperty, value); }
         }
 
-        public static readonly StyledProperty<IoCContainer> TheContainerProperty =
-            AvaloniaProperty.Register<PluginControl, IoCContainer>
+        public static readonly StyledProperty<IDependencyInjectionContainer> TheContainerProperty =
+            AvaloniaProperty.Register<PluginControl, IDependencyInjectionContainer>
             (
                 nameof(TheContainer)
             );
@@ -46,7 +47,7 @@ namespace NP.Avalonia.Gidon
             this.GetObservable(PluginInfoProperty).Subscribe(OnPluginInfoPropertyChanged);
         }
 
-        private void OnContainerChanged(IoCContainer container)
+        private void OnContainerChanged(IDependencyInjectionContainer container)
         {
             ResetPlugin();
         }
@@ -58,7 +59,7 @@ namespace NP.Avalonia.Gidon
 
         private void ResetPlugin()
         {
-            IoCContainer container = this.TheContainer;
+            IDependencyInjectionContainer container = this.TheContainer;
 
             VisualPluginInfo pluginInfo = this.PluginInfo;
 
