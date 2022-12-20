@@ -23,23 +23,38 @@
 		  Margin="10">
 		<np:RootDockGroup TheDockManager="{StaticResource TheDockManager}"
 						  DockId="TopLevelGroup">
-			<np:StackDockGroup TheOrientation="Horizontal">
-				<np:DockItem Header="Enter Text">
-					<np:PluginControl x:Name="EnterTextPluginControl"
-									  TheContainer="{x:Static local:App.TheContainer}"
-									  HorizontalAlignment="Center"
-									  VerticalAlignment="Center">
-						<np:PluginControl.PluginInfo>
-							<utils:VisualPluginInfo ViewModelType="{x:Type utils:IPlugin}"
-													ViewModelKey="EnterTextViewModel"
-													ViewDataTemplateResourcePath="avares://EnterTextViewPlugin/Views/EnterTextView.axaml"
-													ViewDataTemplateResourceKey="EnterTextView"/>
-						</np:PluginControl.PluginInfo>
-					</np:PluginControl>
-				</np:DockItem>
+			<np:StackDockGroup TheOrientation="Vertical">
+				<np:StackDockGroup TheOrientation="Horizontal">
+					<np:DockItem Header="Enter Text">
+						<np:PluginControl x:Name="EnterTextPluginControl"
+										  TheContainer="{x:Static local:App.TheContainer}"
+										  HorizontalAlignment="Center"
+										  VerticalAlignment="Center">
+							<np:PluginControl.PluginInfo>
+								<utils:VisualPluginInfo ViewModelType="{x:Type utils:IPlugin}"
+														ViewModelKey="EnterTextViewModel"
+														ViewDataTemplateResourcePath="avares://EnterTextViewPlugin/Views/EnterTextView.axaml"
+														ViewDataTemplateResourceKey="EnterTextView"/>
+							</np:PluginControl.PluginInfo>
+						</np:PluginControl>
+					</np:DockItem>
+					<np:DockItem Header="Received Text">
+						<np:PluginControl x:Name="ReceiveTextPluginControl"
+										  TheContainer="{x:Static local:App.TheContainer}"
+										  HorizontalAlignment="Center"
+										  VerticalAlignment="Center">
+							<np:PluginControl.PluginInfo>
+								<utils:VisualPluginInfo ViewModelType="{x:Type utils:IPlugin}"
+														ViewModelKey="ReceiveTextViewModel"
+														ViewDataTemplateResourcePath="avares://ReceiveTextViewPlugin/Views/ReceiveTextView.axaml"
+														ViewDataTemplateResourceKey="ReceiveTextView"/>
+							</np:PluginControl.PluginInfo>
+						</np:PluginControl>
+					</np:DockItem>
+				</np:StackDockGroup>
 				<np:TabbedDockGroup DockId="Securities"
-									IsStableGroup="True"
-									AutoDestroy="False">
+						IsStableGroup="True"
+						AutoDestroy="False">
 				</np:TabbedDockGroup>
 			</np:StackDockGroup>
 		</np:RootDockGroup>
