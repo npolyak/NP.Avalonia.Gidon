@@ -1,12 +1,11 @@
-﻿using NP.Utilities;
-using NP.Utilities.Attributes;
+﻿using NP.DependencyInjection.Attributes;
+using NP.Utilities;
 using NP.Utilities.PluginUtils;
 using System.Xml.Serialization;
-using TestServiceInterfaces;
 
 namespace SecurityTestViewModelPlugin;
 
-[Implements(typeof(IPlugin), partKey: nameof(SecurityTestViewModel), isSingleton: true)]
+[RegisterType(typeof(IPlugin), resolutionKey: nameof(SecurityTestViewModel), isSingleton: true)]
 public class SecurityTestViewModel : VMBase, IPlugin
 {
     [XmlAttribute]

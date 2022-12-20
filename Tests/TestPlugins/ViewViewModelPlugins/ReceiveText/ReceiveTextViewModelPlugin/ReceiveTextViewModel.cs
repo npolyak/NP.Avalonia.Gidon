@@ -1,12 +1,12 @@
 ﻿using CommonNonVisualLib;
 using NP.Utilities;
-using NP.Utilities.Attributes;
 using NP.Utilities.PluginUtils;
 using TestServiceInterfaces;
+using NP.DependencyInjection.Attributes;
 
 namespace ReceiveTextViewModelPlugin;
 
-//[Implements(typeof(IPlugin), partKey: nameof(ReceiveTextViewModel), isSingleton: true)]
+[RegisterType(typeof(IPlugin), resolutionKey: nameof(ReceiveTextViewModel), isSingleton: true)]
 public class ReceiveTextViewModel : VMBase, IPlugin
 {
     public MyTestViewModel TheVM { get; } = new MyTestViewModel();
@@ -68,17 +68,17 @@ public class ReceiveTextViewModel : VMBase, IPlugin
     }
     #endregion Text Property
 
-    //[CompositeConstructor]
-    public ReceiveTextViewModel(/*[Part(partKey:"TheTextService")]*/ ITextService textService)
+    [CompositeConstructor]
+    public ReceiveTextViewModel([Inject(resolutionKey:"TheTextService")] ITextService textService)
     {
         TheTextService = textService;
     }
 
-    [HasFactoryMethods]
+    [HasRegisterMethods]
     public static class ReceiveTestViewFactory
     {
-        [FactoryMethod(partKey:"ReceiveTextViewModel")]
-        public static IPlugin CreateFactory([Part(partKey:"TheTextService")] ITextService textService)
+        [RegisterMethod(resolutionKey:"ReceiveTextViewModel")]
+        public static IPlugin CreateFactory([Inject(resolutionKey:"TheTextService")] ITextService textService)
         {
             return new ReceiveTextViewModel(textService);
         }
