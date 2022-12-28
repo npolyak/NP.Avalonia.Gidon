@@ -11,13 +11,13 @@ namespace AuthenticationPluginTest
 {
     public class App : Application
     {
-        public static IDependencyInjectionContainer TheContainer { get; }
+        public static IDependencyInjectionContainer<string?> TheContainer { get; }
 
         public static AuthenticationViewModel TheViewModel { get; }
 
         static App()
         {
-            var containerBuilder = new ContainerBuilder();
+            var containerBuilder = new ContainerBuilder<string?>();
 
             containerBuilder.RegisterAssembly(typeof(MockAuthenticationService).Assembly);
 

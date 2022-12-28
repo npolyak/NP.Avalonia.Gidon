@@ -3,39 +3,37 @@ using Avalonia.Controls;
 using Avalonia.Controls.Presenters;
 using Avalonia.Markup.Xaml;
 using Avalonia.Markup.Xaml.Templates;
-using Avalonia.Styling;
 using NP.DependencyInjection.Interfaces;
-using NP.IoCy;
 using NP.Utilities.PluginUtils;
 using System;
 
 namespace NP.Avalonia.Gidon
 {
-    public class PluginControl : ContentPresenter
+    public class PluginControl<TKey> : ContentPresenter
     {
         #region TheContainer Styled Avalonia Property
-        public IDependencyInjectionContainer TheContainer
+        public IDependencyInjectionContainer<TKey> TheContainer
         {
             get { return GetValue(TheContainerProperty); }
             set { SetValue(TheContainerProperty, value); }
         }
 
-        public static readonly StyledProperty<IDependencyInjectionContainer> TheContainerProperty =
-            AvaloniaProperty.Register<PluginControl, IDependencyInjectionContainer>
+        public static readonly StyledProperty<IDependencyInjectionContainer<TKey>> TheContainerProperty =
+            AvaloniaProperty.Register<PluginControl<TKey>, IDependencyInjectionContainer<TKey>>
             (
                 nameof(TheContainer)
             );
         #endregion TheContainer Styled Avalonia Property
 
         #region PluginInfo Styled Avalonia Property
-        public VisualPluginInfo PluginInfo
+        public VisualPluginInfo<TKey> PluginInfo
         {
             get { return GetValue(PluginInfoProperty); }
             set { SetValue(PluginInfoProperty, value); }
         }
 
-        public static readonly StyledProperty<VisualPluginInfo> PluginInfoProperty =
-            AvaloniaProperty.Register<PluginControl, VisualPluginInfo>
+        public static readonly StyledProperty<VisualPluginInfo<TKey>> PluginInfoProperty =
+            AvaloniaProperty.Register<PluginControl<TKey>, VisualPluginInfo<TKey>>
             (
                 nameof(PluginInfo)
             );
@@ -47,21 +45,21 @@ namespace NP.Avalonia.Gidon
             this.GetObservable(PluginInfoProperty).Subscribe(OnPluginInfoPropertyChanged);
         }
 
-        private void OnContainerChanged(IDependencyInjectionContainer container)
+        private void OnContainerChanged(IDependencyInjectionContainer<TKey> container)
         {
             ResetPlugin();
         }
 
-        private void OnPluginInfoPropertyChanged(VisualPluginInfo pluginInfo)
+        private void OnPluginInfoPropertyChanged(VisualPluginInfo<TKey> pluginInfo)
         {
             ResetPlugin();
         }
 
         private void ResetPlugin()
         {
-            IDependencyInjectionContainer container = this.TheContainer;
+            IDependencyInjectionContainer<TKey> container = this.TheContainer;
 
-            VisualPluginInfo pluginInfo = this.PluginInfo;
+            VisualPluginInfo<TKey> pluginInfo = this.PluginInfo;
 
             if (container == null || pluginInfo == null)
                 return;

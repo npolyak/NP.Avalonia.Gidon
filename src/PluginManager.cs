@@ -5,12 +5,12 @@ using System.IO;
 
 namespace NP.Avalonia.Gidon
 {
-    public class PluginManager
+    public class PluginManager<TKey>
     {
-        private readonly IContainerBuilder _containerBuilder = 
-            new ContainerBuilder();
+        private readonly IContainerBuilder<TKey> _containerBuilder = 
+            new ContainerBuilder<TKey>();
 
-        public IDependencyInjectionContainer TheContainer { get; private set; }
+        public IDependencyInjectionContainer<TKey> TheContainer { get; private set; }
 
         public string ServicesPath { get; }
         public string ViewModelsPath { get; }
