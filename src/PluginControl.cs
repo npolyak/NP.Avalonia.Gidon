@@ -3,6 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.Presenters;
 using Avalonia.Markup.Xaml;
 using Avalonia.Markup.Xaml.Templates;
+using NP.Avalonia.Gidon;
 using NP.DependencyInjection.Interfaces;
 using NP.Utilities.PluginUtils;
 using System;
@@ -77,5 +78,15 @@ namespace NP.Avalonia.Gidon
 
             this.ContentTemplate = (DataTemplate)resourceDictionary[pluginInfo.ViewDataTemplateResourceKey]!;
         }
+    }
+
+    public class PluginControl : PluginControl<object?>
+    {
+
+    }
+
+    public class PluginControlStr : PluginControl<string?>
+    {
+
     }
 }
