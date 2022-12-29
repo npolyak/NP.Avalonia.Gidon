@@ -15,15 +15,15 @@ namespace PluginsTest
         /// "Plugins/Services" - to load the services (non-visual singletons)
         /// "Plugins/ViewModelPlugins" - to load view model plugins
         /// "Plugins/ViewPlugins" - to load view plugins
-        public static PluginManager<object?> ThePluginManager { get; } = 
-            new PluginManager<object?>
+        public static PluginManager<string?> ThePluginManager { get; } = 
+            new PluginManager<string?>
             (
                 "Plugins/Services", 
                 "Plugins/ViewModelPlugins", 
                 "Plugins/ViewPlugins");
 
         // the IoC container
-        public static IDependencyInjectionContainer<object?> TheContainer => ThePluginManager.TheContainer;
+        public static IDependencyInjectionContainer<string?> TheContainer => ThePluginManager.TheContainer;
 
         public App()
         {
