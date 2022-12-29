@@ -6,7 +6,7 @@ using System;
 
 namespace NP.Avalonia.Gidon
 {
-    public class PluginAttachedProperties<TKey>
+    public class PluginAttachedProperties
     {
         #region PluginDataContext Attached Avalonia Property
         public static object? GetPluginDataContext(IControl obj)
@@ -20,7 +20,7 @@ namespace NP.Avalonia.Gidon
         }
 
         public static readonly AttachedProperty<object?> PluginDataContextProperty =
-            AvaloniaProperty.RegisterAttached<PluginAttachedProperties<TKey>, IControl, object?>
+            AvaloniaProperty.RegisterAttached<PluginAttachedProperties, IControl, object?>
             (
                 "PluginDataContext"
             );
@@ -28,18 +28,18 @@ namespace NP.Avalonia.Gidon
 
 
         #region PluginVmInfo Attached Avalonia Property
-        public static ViewModelPluginInfo<TKey> GetPluginVmInfo(IControl obj)
+        public static ViewModelPluginInfo<object?> GetPluginVmInfo(IControl obj)
         {
             return obj.GetValue(PluginVmInfoProperty);
         }
 
-        public static void SetPluginVmInfo(IControl obj, ViewModelPluginInfo<TKey> value)
+        public static void SetPluginVmInfo(IControl obj, ViewModelPluginInfo<object?> value)
         {
             obj.SetValue(PluginVmInfoProperty, value);
         }
 
-        public static readonly AttachedProperty<ViewModelPluginInfo<TKey>> PluginVmInfoProperty =
-            AvaloniaProperty.RegisterAttached<PluginAttachedProperties<TKey>, IControl, ViewModelPluginInfo<TKey>>
+        public static readonly AttachedProperty<ViewModelPluginInfo<object?>> PluginVmInfoProperty =
+            AvaloniaProperty.RegisterAttached<PluginAttachedProperties, IControl, ViewModelPluginInfo<object?>>
             (
                 "PluginVmInfo"
             );
@@ -47,25 +47,24 @@ namespace NP.Avalonia.Gidon
 
 
         #region TheContainer Attached Avalonia Property
-        public static IDependencyInjectionContainer<TKey> GetTheContainer(IControl obj)
+        public static IDependencyInjectionContainer<object?> GetTheContainer(IControl obj)
         {
             return obj.GetValue(TheContainerProperty);
         }
 
-        public static void SetTheContainer(IControl obj, IDependencyInjectionContainer<TKey> value)
+        public static void SetTheContainer(IControl obj, IDependencyInjectionContainer<object?> value)
         {
             obj.SetValue(TheContainerProperty, value);
         }
 
-        public static readonly AttachedProperty<IDependencyInjectionContainer<TKey>> TheContainerProperty =
+        public static readonly AttachedProperty<IDependencyInjectionContainer<object?>> TheContainerProperty =
             AvaloniaProperty.RegisterAttached
             <
-                PluginAttachedProperties<TKey>, 
-                IControl, 
-                IDependencyInjectionContainer<TKey>>
+                PluginAttachedProperties,
+                IControl,
+                IDependencyInjectionContainer<object?>>
             (
-                "TheContainer"
-            );
+                "TheContainer");
         #endregion TheContainer Attached Avalonia Property
 
 
@@ -78,7 +77,7 @@ namespace NP.Avalonia.Gidon
 
         private static void OnPluginVmInfoChanged
         (
-            AvaloniaPropertyChangedEventArgs<ViewModelPluginInfo<TKey>> args)
+            AvaloniaPropertyChangedEventArgs<ViewModelPluginInfo<object?>> args)
         {
             IControl sender = (IControl)args.Sender;
             ResetPluginDataContext(sender);
@@ -87,16 +86,16 @@ namespace NP.Avalonia.Gidon
 
         private static void OnContainerChanged
         (
-            AvaloniaPropertyChangedEventArgs<IDependencyInjectionContainer<TKey>> args)
+            AvaloniaPropertyChangedEventArgs<IDependencyInjectionContainer<object?>> args)
         {
-            IControl sender = (IControl) args.Sender;
+            IControl sender = (IControl)args.Sender;
             ResetPluginDataContext(sender);
         }
 
         private static void ResetPluginDataContext(IControl control)
         {
-            IDependencyInjectionContainer<TKey> container = GetTheContainer(control);
-            ViewModelPluginInfo<TKey> pluginInfo = GetPluginVmInfo(control); 
+            IDependencyInjectionContainer<object?> container = GetTheContainer(control);
+            ViewModelPluginInfo<object?> pluginInfo = GetPluginVmInfo(control);
 
             if (container == null || pluginInfo == null)
             {
