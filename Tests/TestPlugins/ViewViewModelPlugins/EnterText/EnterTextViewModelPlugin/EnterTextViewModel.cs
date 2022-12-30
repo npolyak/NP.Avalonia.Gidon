@@ -1,4 +1,5 @@
-﻿using CommonNonVisualLib;
+﻿using Common;
+using CommonNonVisualLib;
 using NP.DependencyInjection.Attributes;
 using NP.Utilities;
 using NP.Utilities.PluginUtils;
@@ -6,13 +7,13 @@ using TestServiceInterfaces;
 
 namespace EnterTextViewModelPlugin;
 
-[RegisterType(typeof(IPlugin), resolutionKey: nameof(EnterTextViewModel), isSingleton: true)]
+[RegisterType(typeof(IPlugin), resolutionKey: PluginKeys.EnterTextViewModel, isSingleton: true)]
 public class EnterTextViewModel : VMBase, IPlugin
 {
     public MyTestViewModel TheVM { get; } = new MyTestViewModel();
 
     // ITextService implementation
-    [Inject(typeof(ITextService), resolutionKey:"TheTextService")]
+    [Inject(typeof(ITextService), resolutionKey:PluginKeys.TheTextService)]
     public ITextService? TheTextService { get; private set; }
 
     #region Text Property

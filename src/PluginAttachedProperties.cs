@@ -164,4 +164,32 @@ namespace NP.Avalonia.Gidon
             obj.SetValue(TheContainerProperty, value);
         }
     }
+
+    public class PluginAttachedPropertiesEnum : PluginAttachedProperties<Enum>
+    {
+        public static new object? GetPluginDataContext(AvaloniaObject obj)
+        {
+            return obj.GetValue(PluginDataContextProperty);
+        }
+
+        public static new ViewModelPluginInfo<Enum>? GetPluginVmInfo(AvaloniaObject obj)
+        {
+            return obj.GetValue(PluginVmInfoProperty);
+        }
+
+        public static new void SetPluginVmInfo(AvaloniaObject obj, ViewModelPluginInfo<Enum>? value)
+        {
+            obj.SetValue(PluginVmInfoProperty, value);
+        }
+
+        public static new IDependencyInjectionContainer<Enum> GetTheContainer(AvaloniaObject obj)
+        {
+            return obj.GetValue(TheContainerProperty);
+        }
+
+        public static new void SetTheContainer(AvaloniaObject obj, IDependencyInjectionContainer<Enum> value)
+        {
+            obj.SetValue(TheContainerProperty, value);
+        }
+    }
 }

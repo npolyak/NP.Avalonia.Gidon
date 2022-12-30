@@ -2,6 +2,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:utils="clr-namespace:NP.Utilities.PluginUtils;assembly=NP.Utilities"
 		xmlns:basicServices="clr-namespace:NP.Utilities.BasicServices;assembly=NP.Utilities"
+        xmlns:common="clr-namespace:Common;assembly=Common"
 		xmlns:np="https://np.com/visuals"
 		xmlns:local="clr-namespace:PluginsTest"
         x:Class="PluginsTest.MainWindow"
@@ -12,51 +13,50 @@
 		<np:DockManager x:Key="TheDockManager"/>
 	</Window.Resources>
 	<Grid>
-		<np:PluginControlStr x:Name="AuthenticationPluginControl"
-						  TheContainer="{x:Static local:App.TheContainer}">
-			<np:PluginControlStr.PluginInfo>
-				<utils:VisualPluginInfoStr ViewModelType="{x:Type utils:IPlugin}"
-											ViewModelKey="AuthenticationVM"
+		<np:PluginControlEnum x:Name="AuthenticationPluginControl"
+							  TheContainer="{x:Static local:App.TheContainer}">
+			<np:PluginControlEnum.PluginInfo>
+				<utils:VisualPluginInfoEnum ViewModelType="{x:Type utils:IPlugin}"
+											ViewModelKey="{x:Static common:PluginKeys.AuthenticationVM}"
 											ViewDataTemplateResourcePath="avares://AuthenticationViewPlugin/Views/AuthenticationView.axaml"
 											ViewDataTemplateResourceKey="AuthenticationViewDataTemplate"/>
-			</np:PluginControlStr.PluginInfo>
-		</np:PluginControlStr>
+			</np:PluginControlEnum.PluginInfo>
+		</np:PluginControlEnum>
 		<Grid x:Name="DockContainer"
-			  IsVisible="{Binding Path=(np:PluginAttachedPropertiesStr.PluginDataContext).IsAuthenticated, 
+			  IsVisible="{Binding Path=(np:PluginAttachedPropertiesEnum.PluginDataContext).IsAuthenticated, 
 								  RelativeSource={RelativeSource Self}}"
-			  np:PluginAttachedPropertiesStr.TheContainer="{x:Static local:App.TheContainer}">
-			<np:PluginAttachedPropertiesStr.PluginVmInfo>
-				<utils:ViewModelPluginInfoStr ViewModelType="{x:Type basicServices:IAuthenticationService}"/>
-			</np:PluginAttachedPropertiesStr.PluginVmInfo>
+			  np:PluginAttachedPropertiesEnum.TheContainer="{x:Static local:App.TheContainer}">
+			<np:PluginAttachedPropertiesEnum.PluginVmInfo>
+				<utils:ViewModelPluginInfoEnum ViewModelType="{x:Type basicServices:IAuthenticationService}"/>
+			</np:PluginAttachedPropertiesEnum.PluginVmInfo>
 			<np:RootDockGroup TheDockManager="{StaticResource TheDockManager}">
 				<np:StackDockGroup TheOrientation="Horizontal">
 					<np:DockItem Header="Enter Text">
-						<np:PluginControlStr x:Name="EnterTextPluginControl"
+						<np:PluginControlEnum x:Name="EnterTextPluginControl"
 										  TheContainer="{x:Static local:App.TheContainer}"
 										  HorizontalAlignment="Center"
 										  VerticalAlignment="Center">
-							<np:PluginControlStr.PluginInfo>
-								<utils:VisualPluginInfoStr ViewModelType="{x:Type utils:IPlugin}"
-														   ViewModelKey="EnterTextViewModel"
+							<np:PluginControlEnum.PluginInfo>
+								<utils:VisualPluginInfoEnum ViewModelType="{x:Type utils:IPlugin}"
+														   ViewModelKey="{x:Static common:PluginKeys.EnterTextViewModel}"
 														   ViewDataTemplateResourcePath="avares://EnterTextViewPlugin/Views/EnterTextView.axaml"
 														   ViewDataTemplateResourceKey="EnterTextView"/>
-							</np:PluginControlStr.PluginInfo>
-						</np:PluginControlStr>
+							</np:PluginControlEnum.PluginInfo>
+						</np:PluginControlEnum>
 					</np:DockItem>
 					<np:DockItem Header="Received Text">
-						<np:PluginControlStr x:Name="ReceiveTextPluginControl"
+						<np:PluginControlEnum x:Name="ReceiveTextPluginControl"
 										     TheContainer="{x:Static local:App.TheContainer}">
-							<np:PluginControlStr.PluginInfo>
-								<utils:VisualPluginInfoStr ViewModelType="{x:Type utils:IPlugin}"
-														   ViewModelKey="ReceiveTextViewModel"
+							<np:PluginControlEnum.PluginInfo>
+								<utils:VisualPluginInfoEnum ViewModelType="{x:Type utils:IPlugin}"
+														   ViewModelKey="{x:Static common:PluginKeys.ReceiveTextViewModel}"
 														   ViewDataTemplateResourcePath="avares://ReceiveTextViewPlugin/Views/ReceiveTextView.axaml"
 														   ViewDataTemplateResourceKey="ReceiveTextView"/>
-							</np:PluginControlStr.PluginInfo>
-						</np:PluginControlStr>
+							</np:PluginControlEnum.PluginInfo>
+						</np:PluginControlEnum>
 					</np:DockItem>
 				</np:StackDockGroup>
 			</np:RootDockGroup>
-		
-	</Grid>
+		</Grid>
 	</Grid>
 </Window>

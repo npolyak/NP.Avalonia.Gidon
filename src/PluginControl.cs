@@ -89,4 +89,9 @@ namespace NP.Avalonia.Gidon
     {
 
     }
+
+    public class PluginControlEnum : PluginControl<Enum>
+    {
+
+    }
 }

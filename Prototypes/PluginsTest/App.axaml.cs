@@ -1,9 +1,12 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using Common;
 using NP.Avalonia.Gidon;
 using NP.DependencyInjection.Interfaces;
 using NP.NLogAdapter;
+using NP.Utilities.PluginUtils;
+using System;
 
 namespace PluginsTest
 {
@@ -15,15 +18,15 @@ namespace PluginsTest
         /// "Plugins/Services" - to load the services (non-visual singletons)
         /// "Plugins/ViewModelPlugins" - to load view model plugins
         /// "Plugins/ViewPlugins" - to load view plugins
-        public static PluginManager<string?> ThePluginManager { get; } = 
-            new PluginManager<string?>
+        public static PluginManager<Enum> ThePluginManager { get; } = 
+            new PluginManager<Enum>
             (
                 "Plugins/Services", 
                 "Plugins/ViewModelPlugins", 
                 "Plugins/ViewPlugins");
 
         // the IoC container
-        public static IDependencyInjectionContainer<string?> TheContainer => ThePluginManager.TheContainer;
+        public static IDependencyInjectionContainer<Enum> TheContainer => ThePluginManager.TheContainer;
 
         public App()
         {

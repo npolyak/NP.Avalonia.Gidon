@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\SubModules\NP.DependencyInjection\src\NP.DependencyInjection.csproj" />
     <ProjectReference Include="..\..\..\..\..\SubModules\NP.Utilities\src\NP.Utilities.csproj" />
+    <ProjectReference Include="..\..\..\..\Common\Common.csproj" />
     <ProjectReference Include="..\..\..\..\TestServiceInterfaces\TestServiceInterfaces.csproj" />
     <ProjectReference Include="..\..\CommonNonVisualLib\CommonNonVisualLib.csproj" />
   </ItemGroup>

@@ -1,4 +1,5 @@
-﻿using NP.DependencyInjection.Attributes;
+﻿using Common;
+using NP.DependencyInjection.Attributes;
 using NP.Utilities;
 using NP.Utilities.Attributes;
 using NP.Utilities.BasicServices;
@@ -6,7 +7,7 @@ using NP.Utilities.PluginUtils;
 
 namespace AuthenticationViewModelPlugin;
 
-[RegisterType(typeof(IPlugin), resolutionKey: "AuthenticationVM", isSingleton: true)]
+[RegisterType(typeof(IPlugin), resolutionKey: PluginKeys.AuthenticationVM, isSingleton: true)]
 public class AuthenticationViewModel : VMBase, IPlugin
 {
     [Inject(typeof(IAuthenticationService))]
