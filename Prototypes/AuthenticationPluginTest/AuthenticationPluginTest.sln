@@ -47,6 +47,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NP.DependencyInjection", ".
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NP.IoC.CommonImplementations", "..\..\SubModules\NP.IoC.CommonImplementations\src\NP.IoC.CommonImplementations.csproj", "{34C57B41-D086-49FB-9322-B3A079172A2F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "..\..\Tests\Common\Common.csproj", "{AF064D0A-3918-40CD-9062-3FD152AC51CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,10 @@ Global
 		{34C57B41-D086-49FB-9322-B3A079172A2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34C57B41-D086-49FB-9322-B3A079172A2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34C57B41-D086-49FB-9322-B3A079172A2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF064D0A-3918-40CD-9062-3FD152AC51CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF064D0A-3918-40CD-9062-3FD152AC51CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF064D0A-3918-40CD-9062-3FD152AC51CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF064D0A-3918-40CD-9062-3FD152AC51CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -140,6 +146,7 @@ Global
 		{6B5CE61B-FD3E-46A9-8281-00EF456633C3} = {55489B05-1892-4757-B073-5F3E495EA250}
 		{4C354A2D-D838-4BE0-945B-7DC2D2E3FFF8} = {E705786F-4EC7-4D9E-8DA2-7392F9D1F196}
 		{34C57B41-D086-49FB-9322-B3A079172A2F} = {E705786F-4EC7-4D9E-8DA2-7392F9D1F196}
+		{AF064D0A-3918-40CD-9062-3FD152AC51CC} = {55489B05-1892-4757-B073-5F3E495EA250}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7BC5B230-6682-4616-B704-70A7A9117AD3}
