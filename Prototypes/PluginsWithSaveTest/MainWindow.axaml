@@ -3,6 +3,7 @@
 		xmlns:utils="clr-namespace:NP.Utilities.PluginUtils;assembly=NP.Utilities"
 		xmlns:basicServices="clr-namespace:NP.Utilities.BasicServices;assembly=NP.Utilities"
 		xmlns:np="https://np.com/visuals"
+		xmlns:common="clr-namespace:Common;assembly=Common"
 		xmlns:local="clr-namespace:PluginsWithSaveTest"
         x:Class="PluginsWithSaveTest.MainWindow"
 		np:DockAttachedProperties.TheDockManager="{DynamicResource TheDockManager}"
@@ -17,28 +18,28 @@
 		<np:RootDockGroup TheDockManager="{StaticResource TheDockManager}">
 			<np:StackDockGroup TheOrientation="Horizontal">
 				<np:DockItem Header="Enter Text">
-					<np:PluginControl x:Name="EnterTextPluginControl"
-									  TheContainer="{x:Static local:App.TheContainer}"
-									  HorizontalAlignment="Center"
-									  VerticalAlignment="Center">
-						<np:PluginControl.PluginInfo>
-							<utils:VisualPluginInfo ViewModelType="{x:Type utils:IPlugin}"
-													ViewModelKey="EnterTextViewModel"
-													ViewDataTemplateResourcePath="avares://EnterTextViewPlugin/Views/EnterTextView.axaml"
-													ViewDataTemplateResourceKey="EnterTextView"/>
-						</np:PluginControl.PluginInfo>
-					</np:PluginControl>
+					<np:PluginControlEnum x:Name="EnterTextPluginControl"
+										  TheContainer="{x:Static local:App.TheContainer}"
+										  HorizontalAlignment="Center"
+										  VerticalAlignment="Center">
+						<np:PluginControlEnum.PluginInfo>
+							<utils:VisualPluginInfoEnum ViewModelType="{x:Type utils:IPlugin}"
+														ViewModelKey="{x:Static common:PluginKeys.EnterTextViewModel}"
+														ViewDataTemplateResourcePath="avares://EnterTextViewPlugin/Views/EnterTextView.axaml"
+														ViewDataTemplateResourceKey="EnterTextView"/>
+						</np:PluginControlEnum.PluginInfo>
+					</np:PluginControlEnum>
 				</np:DockItem>
 				<np:DockItem Header="Received Text">
-					<np:PluginControl x:Name="ReceiveTextPluginControl"
+					<np:PluginControlEnum x:Name="ReceiveTextPluginControl"
 									  TheContainer="{x:Static local:App.TheContainer}">
-						<np:PluginControl.PluginInfo>
-							<utils:VisualPluginInfo ViewModelType="{x:Type utils:IPlugin}"
-													ViewModelKey="ReceiveTextViewModel"
+						<np:PluginControlEnum.PluginInfo>
+							<utils:VisualPluginInfoEnum ViewModelType="{x:Type utils:IPlugin}"
+													ViewModelKey="{x:Static common:PluginKeys.ReceiveTextViewModel}"
 													ViewDataTemplateResourcePath="avares://ReceiveTextViewPlugin/Views/ReceiveTextView.axaml"
 													ViewDataTemplateResourceKey="ReceiveTextView"/>
-						</np:PluginControl.PluginInfo>
-					</np:PluginControl>
+						</np:PluginControlEnum.PluginInfo>
+					</np:PluginControlEnum>
 				</np:DockItem>
 			</np:StackDockGroup>
 		</np:RootDockGroup>
