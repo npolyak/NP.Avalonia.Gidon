@@ -65,6 +65,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecurityTestViewPlugin", ".
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonNonVisualLib", "..\..\Tests\TestPlugins\ViewViewModelPlugins\CommonNonVisualLib\CommonNonVisualLib.csproj", "{40504852-4725-44B9-9940-AF46716B2A4D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "..\..\Tests\Common\Common.csproj", "{35731BF6-4DC2-4BAD-AAB8-52691A4850F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -159,6 +161,10 @@ Global
 		{40504852-4725-44B9-9940-AF46716B2A4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40504852-4725-44B9-9940-AF46716B2A4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40504852-4725-44B9-9940-AF46716B2A4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35731BF6-4DC2-4BAD-AAB8-52691A4850F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35731BF6-4DC2-4BAD-AAB8-52691A4850F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35731BF6-4DC2-4BAD-AAB8-52691A4850F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35731BF6-4DC2-4BAD-AAB8-52691A4850F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -191,6 +197,7 @@ Global
 		{D580AA69-C0C9-4257-B071-F427AA935BC0} = {003FA6A8-5281-4871-8A5E-78646A546116}
 		{3CF22B1A-CCCE-4683-B38B-D646349DEEF5} = {003FA6A8-5281-4871-8A5E-78646A546116}
 		{40504852-4725-44B9-9940-AF46716B2A4D} = {D2078E00-8E4D-4064-B273-3941A98424A2}
+		{35731BF6-4DC2-4BAD-AAB8-52691A4850F2} = {55489B05-1892-4757-B073-5F3E495EA250}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7BC5B230-6682-4616-B704-70A7A9117AD3}

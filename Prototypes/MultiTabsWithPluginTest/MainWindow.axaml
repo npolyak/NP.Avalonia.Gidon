@@ -1,6 +1,7 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:utils="clr-namespace:NP.Utilities.PluginUtils;assembly=NP.Utilities"
+		xmlns:common="clr-namespace:Common;assembly=Common"
 		xmlns:np="https://np.com/visuals"
 		xmlns:local="clr-namespace:MultiTabsWithPluginTest"
 		np:DockAttachedProperties.DockChildWindowOwner="{Binding RelativeSource={RelativeSource Mode=Self}}"
@@ -26,30 +27,30 @@
 			<np:StackDockGroup TheOrientation="Vertical">
 				<np:StackDockGroup TheOrientation="Horizontal">
 					<np:DockItem Header="Enter Text">
-						<np:PluginControl x:Name="EnterTextPluginControl"
-										  TheContainer="{x:Static local:App.TheContainer}"
-										  HorizontalAlignment="Center"
-										  VerticalAlignment="Center">
-							<np:PluginControl.PluginInfo>
-								<utils:VisualPluginInfo ViewModelType="{x:Type utils:IPlugin}"
-														ViewModelKey="EnterTextViewModel"
-														ViewDataTemplateResourcePath="avares://EnterTextViewPlugin/Views/EnterTextView.axaml"
-														ViewDataTemplateResourceKey="EnterTextView"/>
-							</np:PluginControl.PluginInfo>
-						</np:PluginControl>
+						<np:PluginControlEnum x:Name="EnterTextPluginControl"
+											  TheContainer="{x:Static local:App.TheContainer}"
+											  HorizontalAlignment="Center"
+											  VerticalAlignment="Center">
+							<np:PluginControlEnum.PluginInfo>
+								<utils:VisualPluginInfoEnum ViewModelType="{x:Type utils:IPlugin}"
+															ViewModelKey="{x:Static common:PluginKeys.EnterTextViewModel}"
+															ViewDataTemplateResourcePath="avares://EnterTextViewPlugin/Views/EnterTextView.axaml"
+															ViewDataTemplateResourceKey="EnterTextView"/>
+							</np:PluginControlEnum.PluginInfo>
+						</np:PluginControlEnum>
 					</np:DockItem>
 					<np:DockItem Header="Received Text">
-						<np:PluginControl x:Name="ReceiveTextPluginControl"
+						<np:PluginControlEnum x:Name="ReceiveTextPluginControl"
 										  TheContainer="{x:Static local:App.TheContainer}"
 										  HorizontalAlignment="Center"
 										  VerticalAlignment="Center">
-							<np:PluginControl.PluginInfo>
-								<utils:VisualPluginInfo ViewModelType="{x:Type utils:IPlugin}"
-														ViewModelKey="ReceiveTextViewModel"
-														ViewDataTemplateResourcePath="avares://ReceiveTextViewPlugin/Views/ReceiveTextView.axaml"
-														ViewDataTemplateResourceKey="ReceiveTextView"/>
-							</np:PluginControl.PluginInfo>
-						</np:PluginControl>
+							<np:PluginControlEnum.PluginInfo>
+								<utils:VisualPluginInfoEnum ViewModelType="{x:Type utils:IPlugin}"
+															ViewModelKey="{x:Static common:PluginKeys.ReceiveTextViewModel}"
+															ViewDataTemplateResourcePath="avares://ReceiveTextViewPlugin/Views/ReceiveTextView.axaml"
+															ViewDataTemplateResourceKey="ReceiveTextView"/>
+							</np:PluginControlEnum.PluginInfo>
+						</np:PluginControlEnum>
 					</np:DockItem>
 				</np:StackDockGroup>
 				<np:TabbedDockGroup DockId="Securities"

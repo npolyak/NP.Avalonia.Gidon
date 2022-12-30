@@ -4,6 +4,7 @@ using Avalonia.Markup.Xaml;
 using NP.Avalonia.Gidon;
 using NP.DependencyInjection.Interfaces;
 using NP.NLogAdapter;
+using System;
 
 namespace MultiTabsWithPluginTest
 {
@@ -15,15 +16,15 @@ namespace MultiTabsWithPluginTest
         /// "Plugins/Services" - to load the services (non-visual singletons)
         /// "Plugins/ViewModelPlugins" - to load view model plugins
         /// "Plugins/ViewPlugins" - to load view plugins
-        public static PluginManager<object?> ThePluginManager { get; } = 
-            new PluginManager<object?>
+        public static PluginManager<Enum> ThePluginManager { get; } = 
+            new PluginManager<Enum>
             (
                 "Plugins/Services", 
                 "Plugins/ViewModelPlugins", 
                 "Plugins/ViewPlugins");
 
         // the IoC container
-        public static IDependencyInjectionContainer<object?> TheContainer =>
+        public static IDependencyInjectionContainer<Enum> TheContainer =>
             ThePluginManager.TheContainer;
 
         public App()
