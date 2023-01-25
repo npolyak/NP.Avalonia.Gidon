@@ -5,7 +5,7 @@ using System.Security;
 
 namespace MockAuthentication;
 
-[RegisterType(typeof(IAuthenticationService), IsSingleton = true)]
+[RegisterType(typeof(IAuthenticationService), isSingleton:true)]
 public class MockAuthenticationService : VMBase, IAuthenticationService
 {
     [Inject]
