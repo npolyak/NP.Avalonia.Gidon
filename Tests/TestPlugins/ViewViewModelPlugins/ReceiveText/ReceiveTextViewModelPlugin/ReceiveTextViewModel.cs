@@ -7,7 +7,7 @@ using Common;
 
 namespace ReceiveTextViewModelPlugin;
 
-[RegisterType(typeof(IPlugin), resolutionKey: PluginKeys.ReceiveTextViewModel, isSingleton: true)]
+//[RegisterType(typeof(IPlugin), resolutionKey: PluginKeys.ReceiveTextViewModel, isSingleton: true)]
 public class ReceiveTextViewModel : VMBase, IPlugin
 {
     public MyTestViewModel TheVM { get; } = new MyTestViewModel();
