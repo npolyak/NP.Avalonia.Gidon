@@ -28,3 +28,9 @@
 [submodule "SubModules/NP.IoC.CommonImplementations"]
 	path = SubModules/NP.IoC.CommonImplementations
 	url = https://github.com/npolyak/NP.IoC.CommonImplementations
+[submodule "SubModules/NP.Protobuf"]
+	path = SubModules/NP.Protobuf
+	url = https://github.com/npolyak/NP.Protobuf.git
+[submodule "SubModules/NP.Grpc.RelayServer"]
+	path = SubModules/NP.Grpc.RelayServer
+	url = https://github.com/npolyak/NP.Grpc.RelayServer.git
