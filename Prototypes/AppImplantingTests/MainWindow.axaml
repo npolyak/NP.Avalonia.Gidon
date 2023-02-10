@@ -4,9 +4,29 @@
 		xmlns:basicServices="clr-namespace:NP.Utilities.BasicServices;assembly=NP.Utilities"
         xmlns:common="clr-namespace:Common;assembly=Common"
 		xmlns:np="https://np.com/visuals"
-		xmlns:local="clr-namespace:PluginsTest"
-        x:Class="PluginsTest.MainWindow"
+		xmlns:local="clr-namespace:AppImplantingTest"
+        x:Class="AppImplantingTest.MainWindow"
         Title="Plugins Test"
 	    Width="600"
 	    Height="400">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition Width="3"/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<Grid>
+			<np:ImplantedWindowHostContainer x:Name="TheWindowHostContainer"
+											 ImplantedWindowHandle="{Binding Path=ChildWindowHandle, RelativeSource={RelativeSource AncestorType=Window}}">
+				<np:ProcessControllerBehavior.ProcInitInfo>
+					<np:ProcessInitInfo ExePath="dotnet">
+						<np:ProcessInitInfo.Args>
+							<x:String>Apps/SimpleAvaloniaApp/SimpleAvaloniaApp.dll</x:String>
+						</np:ProcessInitInfo.Args>
+					</np:ProcessInitInfo>
+				</np:ProcessControllerBehavior.ProcInitInfo>
+		</np:ImplantedWindowHostContainer>
+		</Grid>
+		
+	</Grid>
 </Window>

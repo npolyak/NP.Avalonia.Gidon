@@ -1,7 +1,9 @@
 using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
 using System;
 
-namespace AppImplantingTest
+namespace SimpleAvaloniaApp
 {
     internal class Program
     {

@@ -30,3 +30,6 @@
 *.nupkg
 /Tests/Common/bin/Debug/net6.0
 /Tests/Common/obj
+/Messages/NP.Gidon.Messages/bin/Debug/net6.0
+/Messages/NP.Gidon.Messages/obj
+/Messages/NP.Gidon.MessagesProtos/obj
