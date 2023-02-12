@@ -31,9 +31,4 @@
 		<ProjectReference Include="..\..\..\SubModules\NP.Grpc.RelayServer\Plugins\NP.GrpcConfig\NP.GrpcConfig.csproj" />
 		<ProjectReference Include="..\..\..\SubModules\NP.IoCy\src\NP.IoCy.csproj" />
 	</ItemGroup>
-
-	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-		<!-- copy to the server to register the topic -->
-		<Exec Command="xcopy &quot;$(OutDir)&quot; &quot;$(SolutionDir)\bin\$(Configuration)\net6.0\Apps\$(ProjectName)\&quot; /S /R /Y /I" />
-	</Target>
 </Project>

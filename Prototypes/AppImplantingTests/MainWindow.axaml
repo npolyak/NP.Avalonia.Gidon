@@ -15,18 +15,36 @@
 			<ColumnDefinition Width="3"/>
 			<ColumnDefinition/>
 		</Grid.ColumnDefinitions>
-		<Grid>
-			<np:ImplantedWindowHostContainer x:Name="TheWindowHostContainer"
-											 ImplantedWindowHandle="{Binding Path=ChildWindowHandle, RelativeSource={RelativeSource AncestorType=Window}}">
-				<np:ProcessControllerBehavior.ProcInitInfo>
-					<np:ProcessInitInfo ExePath="dotnet">
-						<np:ProcessInitInfo.Args>
-							<x:String>Apps/SimpleAvaloniaApp/SimpleAvaloniaApp.dll</x:String>
-						</np:ProcessInitInfo.Args>
-					</np:ProcessInitInfo>
-				</np:ProcessControllerBehavior.ProcInitInfo>
+		<!--<np:ImplantedWindowHostContainer x:Name="TheWindowHostContainer"
+										 ImplantedWindowHandle="{Binding Path=ChildWindowHandle, RelativeSource={RelativeSource AncestorType=Window}}">
+			<np:ProcessControllerBehavior.ProcInitInfo>
+				<np:ProcessInitInfo ExePath="Apps/SimpleAvaloniaApp/SimpleAvaloniaApp.exe"/>
+			</np:ProcessControllerBehavior.ProcInitInfo>
+		</np:ImplantedWindowHostContainer>-->
+		<np:ImplantedWindowHostContainer x:Name="TheWindowHostContainer"
+										 ImplantedWindowHandle="{Binding Path=ChildWindowHandle, RelativeSource={RelativeSource AncestorType=Window}}">
+			<np:ProcessControllerBehavior.MultiPlatformProcInitInfo>
+				<np:MultiPlatformProcessInitInfo>
+					<np:MultiPlatformProcessInitInfo.WindowsProcInitInfo>
+						<np:ProcessInitInfo ExePath="Apps/SimpleAvaloniaApp/SimpleAvaloniaApp.exe"/>
+					</np:MultiPlatformProcessInitInfo.WindowsProcInitInfo>
+					<np:MultiPlatformProcessInitInfo.LinuxProcInitInfo>
+						<np:ProcessInitInfo ExePath="nohup">
+							<np:ProcessInitInfo.Args>
+								<x:String>dotnet</x:String>
+								<x:String>Apps/SimpleAvaloniaApp/SimpleAvaloniaApp.dll</x:String>
+								<x:String>&amp;&lt;/dev/null</x:String>
+							</np:ProcessInitInfo.Args>
+						</np:ProcessInitInfo>
+					</np:MultiPlatformProcessInitInfo.LinuxProcInitInfo>
+				</np:MultiPlatformProcessInitInfo>
+			</np:ProcessControllerBehavior.MultiPlatformProcInitInfo>
 		</np:ImplantedWindowHostContainer>
-		</Grid>
-		
+		<GridSplitter VerticalAlignment="Stretch"
+					  HorizontalAlignment="Stretch"
+					  Background="Black"
+					  Grid.Column="1"/>
+
+
 	</Grid>
 </Window>

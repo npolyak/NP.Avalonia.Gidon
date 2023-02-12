@@ -33,3 +33,4 @@
 /Messages/NP.Gidon.Messages/bin/Debug/net6.0
 /Messages/NP.Gidon.Messages/obj
 /Messages/NP.Gidon.MessagesProtos/obj
+*.pyproj~
