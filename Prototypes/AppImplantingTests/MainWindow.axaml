@@ -8,20 +8,19 @@
         x:Class="AppImplantingTest.MainWindow"
         Title="Plugins Test"
 	    Width="600"
-	    Height="400">
-	<Grid>
+	    Height="400"
+		MinHeight="150"
+		MinWidth="400">
+	<Grid MinHeight="100">
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition/>
+			<ColumnDefinition  MinWidth="200"
+							   Width="200"/>
 			<ColumnDefinition Width="3"/>
-			<ColumnDefinition/>
+			<ColumnDefinition MinWidth="200" />
 		</Grid.ColumnDefinitions>
-		<!--<np:ImplantedWindowHostContainer x:Name="TheWindowHostContainer"
-										 ImplantedWindowHandle="{Binding Path=ChildWindowHandle, RelativeSource={RelativeSource AncestorType=Window}}">
-			<np:ProcessControllerBehavior.ProcInitInfo>
-				<np:ProcessInitInfo ExePath="Apps/SimpleAvaloniaApp/SimpleAvaloniaApp.exe"/>
-			</np:ProcessControllerBehavior.ProcInitInfo>
-		</np:ImplantedWindowHostContainer>-->
+		
 		<np:ImplantedWindowHostContainer x:Name="TheWindowHostContainer"
+										 Grid.Column="2"
 										 ImplantedWindowHandle="{Binding Path=ChildWindowHandle, RelativeSource={RelativeSource AncestorType=Window}}">
 			<np:ProcessControllerBehavior.MultiPlatformProcInitInfo>
 				<np:MultiPlatformProcessInitInfo>
@@ -44,7 +43,36 @@
 					  HorizontalAlignment="Stretch"
 					  Background="Black"
 					  Grid.Column="1"/>
-
-
+		<Grid x:Name="TheContainerGrid"
+			  Grid.Column="2">
+			<!--
+			<np:ImplantedWindowHostContainer x:Name="TheWindowHostContainer1"
+											 Grid.Column="2"
+											 HorizontalAlignment="Stretch"
+											 VerticalAlignment="Stretch"
+											 MinHeight="200"
+											 MinWidth="200"
+											 ImplantedWindowHandle="{Binding Path=ChildWindowHandle, RelativeSource={RelativeSource AncestorType=Window}}">
+				<np:ProcessControllerBehavior.MultiPlatformProcInitInfo>
+					<np:MultiPlatformProcessInitInfo>
+						<np:MultiPlatformProcessInitInfo.WindowsProcInitInfo>
+							<np:ProcessInitInfo ExePath="pythonw" WorkingDir="../../../../../Tests/Apps/SimplePyMatPlot/">
+								<np:ProcessInitInfo.Args>
+									<x:String>SimplePyMatPlot.py</x:String>
+								</np:ProcessInitInfo.Args>
+							</np:ProcessInitInfo>
+						</np:MultiPlatformProcessInitInfo.WindowsProcInitInfo>
+						<np:MultiPlatformProcessInitInfo.LinuxProcInitInfo>
+							<np:ProcessInitInfo ExePath="python3" WorkingDir="../../../../../Tests/Apps/SimplePyMatPlot/">
+								<np:ProcessInitInfo.Args>
+									<x:String>SimplePyMatPlot.py</x:String>
+								</np:ProcessInitInfo.Args>
+							</np:ProcessInitInfo>
+						</np:MultiPlatformProcessInitInfo.LinuxProcInitInfo>
+					</np:MultiPlatformProcessInitInfo>
+				</np:ProcessControllerBehavior.MultiPlatformProcInitInfo>
+			</np:ImplantedWindowHostContainer>
+			-->
+		</Grid>
 	</Grid>
 </Window>

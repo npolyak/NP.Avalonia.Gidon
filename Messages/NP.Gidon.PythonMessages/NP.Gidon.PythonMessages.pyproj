@@ -2,16 +2,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>254fe6bf-60ba-435f-9470-1377f034c34a</ProjectGuid>
+    <ProjectGuid>6254e47a-c834-45fe-9f7f-9b77027f2b32</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>SimplePyMatPlot.py</StartupFile>
-    <SearchPath>..\..\..\Messages\NP.Gidon.PythonMessages</SearchPath>
+    <StartupFile>
+    </StartupFile>
+    <SearchPath>
+    </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>SimplePyMatPlot</Name>
-    <RootNamespace>SimplePyMatPlot</RootNamespace>
-    <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
+    <Name>NP.Gidon.PythonMessages</Name>
+    <RootNamespace>NP.Gidon.PythonMessages</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,13 +22,12 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="SimplePyMatPlot.py" />
+    <Compile Include="Messages_pb2.py" />
+    <Compile Include="Messages_pb2_grpc.py" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\launchSettings.json" />
+    <Content Include="generate_stubs.txt" />
+    <Content Include="Messages_pb2.pyi" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
@@ -38,9 +37,5 @@
   <Target Name="BeforeBuild">
   </Target>
   <Target Name="AfterBuild">
-  </Target>
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <!-- copy to the server to register the topic -->
-    <Exec Command="xcopy &quot;$(OutDir)&quot; &quot;$(SolutionDir)\bin\$(Configuration)\net6.0\Apps\$(ProjectName)\&quot; /S /R /Y /I" />
   </Target>
 </Project>

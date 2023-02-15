@@ -6,6 +6,8 @@ import numpy as np
 from matplotlib.backends.qt_compat import QtWidgets
 from matplotlib.backends.backend_qtagg import FigureCanvas
 from matplotlib.figure import Figure
+from BroadcastingRelayClient import BroadcastingRelayClient
+import sys;
 
 class ApplicationWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -24,6 +26,10 @@ class ApplicationWindow(QtWidgets.QMainWindow):
         self._line, = self._ax.plot(t, np.sin(t + time.time()))
 
 if __name__ == "__main__":
+    sys.path.append(r'../../../Messages/NP.Gidon.PythonMessages')
+
+    import Messages_pb2 as messages
+
     # Check whether there is already a running QApplication (e.g., if running
     # from an IDE).
     qapp = QtWidgets.QApplication.instance()
@@ -33,6 +39,17 @@ if __name__ == "__main__":
     app = ApplicationWindow()
     app.show()
     app.activateWindow()
+    winhandle = int(app.winId())
+
+
+    print(winhandle);
+    broadcastingClient = BroadcastingRelayClient("localhost", 5051)
+
+    broadcastingClient.connect_if_needed()
+
+    winInfo = messages.WindowInfo(WindowHandle=winhandle)
+    broadcastingClient.broadcast_object(winInfo, "WindowInfoTopic", 1)
+
     app.raise_()
     qapp.exec()
 

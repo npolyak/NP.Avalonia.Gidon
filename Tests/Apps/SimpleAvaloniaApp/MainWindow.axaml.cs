@@ -40,24 +40,6 @@ namespace SimpleAvaloniaApp
 
             nint winHandle = this.GetWinHandle();
 
-            //if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-            //{
-            //    try
-            //    {
-            //        winHandle = GtkInteropHelper.RunOnGlibThread(() =>
-            //        {
-            //            // get Xid from Gdk window
-            //            IntPtr xid = GtkApi.gdk_x11_window_get_xid(winHandle);
-
-            //            return xid;
-            //        }).Result;
-            //    }
-            //    catch (Exception ex) 
-            //    { 
-                
-            //    }
-            //}
-
             WindowInfo windowInfo = new WindowInfo { WindowHandle = (nint)winHandle };
 
             App.TheRelayClient.Publish(Topic.WindowInfoTopic, windowInfo);

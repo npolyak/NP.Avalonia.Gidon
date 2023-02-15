@@ -1,6 +1,7 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
+using NP.Avalonia.Visuals.Controls;
 using NP.Gidon.Messages;
 using System;
 using System.IO;
@@ -13,6 +14,9 @@ namespace AppImplantingTest
         public MainWindow()
         {
             InitializeComponent();
+#if DEBUG
+            this.AttachDevTools();
+#endif
 
             _clientSubscription =
                 App.TheRelayClient
@@ -39,6 +43,8 @@ namespace AppImplantingTest
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
+
+            //var handle = this.GetWinHandle();
 
             //string currentDir = Directory.GetCurrentDirectory();
         }

@@ -34,3 +34,5 @@
 /Messages/NP.Gidon.Messages/obj
 /Messages/NP.Gidon.MessagesProtos/obj
 *.pyproj~
+/Messages/NP.Gidon.PythonMessages/__pycache__
+/Tests/Apps/SimplePyMatPlot/__pycache__
