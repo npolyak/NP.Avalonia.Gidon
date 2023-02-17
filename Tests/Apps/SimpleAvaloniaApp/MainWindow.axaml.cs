@@ -27,9 +27,29 @@ namespace SimpleAvaloniaApp
         #endregion CurrentProcessId Styled Avalonia Property
 
 
+        #region UniqueWindowId Styled Avalonia Property
+        public string UniqueWindowId
+        {
+            get { return GetValue(UniqueWindowIdProperty); }
+            set { SetValue(UniqueWindowIdProperty, value); }
+        }
+
+        public static readonly StyledProperty<string> UniqueWindowIdProperty =
+            AvaloniaProperty.Register<MainWindow, string>
+            (
+                nameof(UniqueWindowId)
+            );
+        #endregion UniqueWindowId Styled Avalonia Property
+
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        public MainWindow(string uniqueWindowId) : this()
+        {
+            UniqueWindowId = uniqueWindowId;
 
             this.Opened += MainWindow_Opened;
         }
@@ -40,7 +60,7 @@ namespace SimpleAvaloniaApp
 
             nint winHandle = this.GetWinHandle();
 
-            WindowInfo windowInfo = new WindowInfo { WindowHandle = (nint)winHandle };
+            WindowInfo windowInfo = new WindowInfo { WindowHandle = (nint)winHandle, UniqueWindowId = this.UniqueWindowId };
 
             App.TheRelayClient.Publish(Topic.WindowInfoTopic, windowInfo);
         }

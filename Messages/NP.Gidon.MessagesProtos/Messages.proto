@@ -21,5 +21,6 @@ enum Topic
 
 message WindowInfo
 {
-	int64 WindowHandle = 1;
+	string UniqueWindowId = 1;
+	int64 WindowHandle = 2;
 }

@@ -8,10 +8,12 @@ None: Topic
 WindowInfoTopic: Topic
 
 class WindowInfo(_message.Message):
-    __slots__ = ["WindowHandle"]
+    __slots__ = ["UniqueWindowId", "WindowHandle"]
+    UNIQUEWINDOWID_FIELD_NUMBER: _ClassVar[int]
+    UniqueWindowId: str
     WINDOWHANDLE_FIELD_NUMBER: _ClassVar[int]
     WindowHandle: int
-    def __init__(self, WindowHandle: _Optional[int] = ...) -> None: ...
+    def __init__(self, UniqueWindowId: _Optional[str] = ..., WindowHandle: _Optional[int] = ...) -> None: ...
 
 class Topic(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = []

@@ -44,7 +44,7 @@ namespace SimpleAvaloniaApp
         {
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-                desktop.MainWindow = new MainWindow();
+                desktop.MainWindow = new MainWindow(desktop.Args[0]);
             }
 
             base.OnFrameworkInitializationCompleted();

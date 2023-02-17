@@ -25,7 +25,7 @@ class ApplicationWindow(QtWidgets.QMainWindow):
         #set up a line2d
         self._line, = self._ax.plot(t, np.sin(t + time.time()))
 
-if __name__ == "__main__":
+def main(argv):
     sys.path.append(r'../../../Messages/NP.Gidon.PythonMessages')
 
     import Messages_pb2 as messages
@@ -39,6 +39,11 @@ if __name__ == "__main__":
     app = ApplicationWindow()
     app.show()
     app.activateWindow()
+    app.unique_window_id = argv[0];
+    #f = open("MyFile.txt", 'w')
+    #f.write(app.unique_window_id)
+    #f.close();
+
     winhandle = int(app.winId())
 
 
@@ -47,10 +52,13 @@ if __name__ == "__main__":
 
     broadcastingClient.connect_if_needed()
 
-    winInfo = messages.WindowInfo(WindowHandle=winhandle)
+    winInfo = messages.WindowInfo(WindowHandle=winhandle, UniqueWindowId=app.unique_window_id)
     broadcastingClient.broadcast_object(winInfo, "WindowInfoTopic", 1)
 
     app.raise_()
     qapp.exec()
+
+if __name__ == "__main__":
+    main(sys.argv[1:])
 
 
