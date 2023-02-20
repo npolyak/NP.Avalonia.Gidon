@@ -1,49 +1,73 @@
 ﻿using Avalonia;
-using Avalonia.Controls;
+using NP.Avalonia.Visuals.Behaviors;
 using NP.Avalonia.Visuals.WindowsOnly;
+using NP.Gidon.Messages;
 using NP.Grpc.CommonRelayInterfaces;
+using NP.IoC.CommonImplementations;
 using System;
+using System.Reactive.Linq;
 
 namespace NP.Avalonia.Gidon
 {
     public static class WinProcessAttachedProperties
     {
-
-        #region RelayClient Attached Avalonia Property
-        public static IRelayClient GetRelayClient(ImplantedWindowHostContainer obj)
+        #region TheProcessInitInfoWithClient Attached Avalonia Property
+        public static MultiPlatformProcessInitInfoWithClient GetTheProcessInitInfoWithClient(ImplantedWindowHostContainer obj)
         {
-            return obj.GetValue(RelayClientProperty);
+            return obj.GetValue(TheProcessInitInfoWithClientProperty);
         }
 
-        public static void SetRelayClient(ImplantedWindowHostContainer obj, IRelayClient value)
+        public static void SetTheProcessInitInfoWithClient(ImplantedWindowHostContainer obj, MultiPlatformProcessInitInfoWithClient value)
         {
-            obj.SetValue(RelayClientProperty, value);
+            obj.SetValue(TheProcessInitInfoWithClientProperty, value);
         }
 
-        public static readonly AttachedProperty<IRelayClient> RelayClientProperty =
-            AvaloniaProperty.RegisterAttached<ImplantedWindowHostContainer, ImplantedWindowHostContainer, IRelayClient>
+        public static readonly AttachedProperty<MultiPlatformProcessInitInfoWithClient> TheProcessInitInfoWithClientProperty =
+            AvaloniaProperty.RegisterAttached<ImplantedWindowHostContainer, ImplantedWindowHostContainer, MultiPlatformProcessInitInfoWithClient>
             (
-                "RelayClient"
+                "TheProcessInitInfoWithClient"
             );
-
-        #endregion RelayClient Attached Avalonia Property
+        #endregion TheProcessInitInfoWithClient Attached Avalonia Property
 
         static WinProcessAttachedProperties()
         {
-            RelayClientProperty.Changed.Subscribe(OnRelayClientChanged);
+            TheProcessInitInfoWithClientProperty.Changed.Subscribe(OnProcessInitInfoWithClientChanged);
         }
 
-        private static void OnRelayClientChanged(AvaloniaPropertyChangedEventArgs<IRelayClient> changedArgs)
+        private static void OnProcessInitInfoWithClientChanged(AvaloniaPropertyChangedEventArgs<MultiPlatformProcessInitInfoWithClient> changeArgs)
         {
-            ImplantedWindowHostContainer implantedWindowHostContainer = 
-                (ImplantedWindowHostContainer) changedArgs.Sender;    
+            var sender = (ImplantedWindowHostContainer)changeArgs.Sender;
 
-            if (implantedWindowHostContainer != null)
+            var mpProcInitInfo = changeArgs.NewValue.Value;
+
+            void OnWindowInfoArrived(WindowInfo windowInfo)
             {
+                if (windowInfo.UniqueWindowHostId == mpProcInitInfo.UniqueWindowHostId)
+                {
+                    sender.ImplantedWindowHandle = (nint)windowInfo.WindowHandle;
+                }
+            }
 
-            }    
+            var uniqueWindowHostId = mpProcInitInfo.UniqueWindowHostId;
+
+            if (uniqueWindowHostId == null)
+            {
+                "uniqueWindowHostId should not be null".ThrowProgError();
+            }
+
+            sender.OnMultiPlatformProcInitInfoChangedWithExtraParams(mpProcInitInfo, new string[] { uniqueWindowHostId! });
+
+            mpProcInitInfo
+                .TheRelayClient
+                .ObserveTopicStream<WindowInfo>(Topic.WindowInfoTopic)
+                .Subscribe(OnWindowInfoArrived);
         }
+    }
 
+    public class MultiPlatformProcessInitInfoWithClient : MultiPlatformProcessInitInfo
+    {
+        public IRelayClient? TheRelayClient { get; set; }
 
+        public string? UniqueWindowHostId { get; set; }
     }
 }

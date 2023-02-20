@@ -21,6 +21,7 @@
    </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Messages\NP.Gidon.Messages\NP.Gidon.Messages.csproj" />
+    <ProjectReference Include="..\..\src\NP.Avalonia.Gidon.csproj" />
     <ProjectReference Include="..\..\SubModules\NP.Avalonia.Visuals\src\NP.Avalonia.Visuals.csproj" />
     <ProjectReference Include="..\..\SubModules\NP.DependencyInjection\src\NP.DependencyInjection.csproj" />
     <ProjectReference Include="..\..\SubModules\NP.Grpc.RelayServer\Plugins\NP.Grpc.RelayClient\NP.Grpc.RelayClient.csproj" />

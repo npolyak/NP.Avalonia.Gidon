@@ -36,6 +36,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Messages\NP.Gidon.Messages\NP.Gidon.Messages.csproj" />
 	  <ProjectReference Include="..\SubModules\NP.Grpc.RelayServer\src\NP.Grpc.CommonRelayInterfaces.csproj" />
 	</ItemGroup>
 </Project>
