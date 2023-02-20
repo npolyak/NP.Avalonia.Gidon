@@ -14,8 +14,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\SubModules\NP.DependencyInjection\src\NP.DependencyInjection.csproj" />
-		<ProjectReference Include="..\..\SubModules\NP.Protobuf\src\NP.Protobuf.csproj" />
+		<ProjectReference Include="$(SolutionDir)..\..\SubModules\NP.DependencyInjection\src\NP.DependencyInjection.csproj" />
+		<ProjectReference Include="$(SolutionDir)..\..\SubModules\NP.Protobuf\src\NP.Protobuf.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -39,21 +39,19 @@ def main(argv):
     app = ApplicationWindow()
     app.show()
     app.activateWindow()
-    app.unique_window_id = argv[0];
-    #f = open("MyFile.txt", 'w')
-    #f.write(app.unique_window_id)
-    #f.close();
-
+    
     winhandle = int(app.winId())
-
-
     print(winhandle);
-    broadcastingClient = BroadcastingRelayClient("localhost", 5051)
 
-    broadcastingClient.connect_if_needed()
+    if len(argv) > 0:
+        app.unique_window_host_id = argv[0];
 
-    winInfo = messages.WindowInfo(WindowHandle=winhandle, UniqueWindowId=app.unique_window_id)
-    broadcastingClient.broadcast_object(winInfo, "WindowInfoTopic", 1)
+        broadcastingClient = BroadcastingRelayClient("localhost", 5051)
+
+        broadcastingClient.connect_if_needed()
+
+        winInfo = messages.WindowInfo(WindowHandle=winhandle, UniqueWindowHostId=app.unique_window_host_id)
+        broadcastingClient.broadcast_object(winInfo, "WindowInfoTopic", 1)
 
     app.raise_()
     qapp.exec()

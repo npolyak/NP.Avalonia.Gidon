@@ -19,7 +19,7 @@ namespace AppImplantingTest
 
         private static IRelayServer TheRelayServer { get; }
 
-        internal static IRelayClient TheRelayClient { get; }
+        public static IRelayClient TheRelayClient { get; }
 
         static App()
         {

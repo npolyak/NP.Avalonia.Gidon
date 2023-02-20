@@ -2,17 +2,20 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>254fe6bf-60ba-435f-9470-1377f034c34a</ProjectGuid>
-    <ProjectHome>.</ProjectHome>
-    <StartupFile>SimplePyMatPlot.py</StartupFile>
+    <ProjectGuid>{b358dc8c-cd05-4c22-9d44-1083ef03a07f}</ProjectGuid>
+    <ProjectHome>
+    </ProjectHome>
+    <StartupFile>DotPyMatPlot.py</StartupFile>
     <SearchPath>..\..\..\Messages\NP.Gidon.PythonMessages</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>SimplePyMatPlot</Name>
+    <Name>SinusoidPyMatPlot</Name>
     <RootNamespace>SimplePyMatPlot</RootNamespace>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
-    <CommandLineArguments>SimplePyWin1</CommandLineArguments>
+    <CommandLineArguments>
+    </CommandLineArguments>
+    <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,13 +26,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="SimplePyMatPlot.py" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\launchSettings.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DotPyMatPlot.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

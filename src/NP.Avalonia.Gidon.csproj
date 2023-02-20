@@ -31,7 +31,11 @@
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(Configuration)'=='Release'">
-		<PackageReference Include="NP.Avalonia.UniDock" Version="1.0.47"/>
-		<PackageReference Include="NP.IoCy" Version="1.0.32"/>
+		<PackageReference Include="NP.Avalonia.UniDock" Version="1.0.47" />
+		<PackageReference Include="NP.IoCy" Version="1.0.32" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\SubModules\NP.Grpc.RelayServer\src\NP.Grpc.CommonRelayInterfaces.csproj" />
 	</ItemGroup>
 </Project>

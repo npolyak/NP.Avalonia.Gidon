@@ -36,3 +36,5 @@
 *.pyproj~
 /Messages/NP.Gidon.PythonMessages/__pycache__
 /Tests/Apps/SimplePyMatPlot/__pycache__
+*.user
+/Tests/Apps/SinusoidPyMatPlot/__pycache__

@@ -13,15 +13,15 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0eMessages.proto\x12\x11NP.Gidon.Messages\":\n\nWindowInfo\x12\x16\n\x0eUniqueWindowId\x18\x01 \x01(\t\x12\x14\n\x0cWindowHandle\x18\x02 \x01(\x03*&\n\x05Topic\x12\x08\n\x04None\x10\x00\x12\x13\n\x0fWindowInfoTopic\x10\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0eMessages.proto\x12\x11NP.Gidon.Messages\">\n\nWindowInfo\x12\x1a\n\x12UniqueWindowHostId\x18\x01 \x01(\t\x12\x14\n\x0cWindowHandle\x18\x02 \x01(\x03*&\n\x05Topic\x12\x08\n\x04None\x10\x00\x12\x13\n\x0fWindowInfoTopic\x10\x01\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'Messages_pb2', globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _TOPIC._serialized_start=97
-  _TOPIC._serialized_end=135
+  _TOPIC._serialized_start=101
+  _TOPIC._serialized_end=139
   _WINDOWINFO._serialized_start=37
-  _WINDOWINFO._serialized_end=95
+  _WINDOWINFO._serialized_end=99
 # @@protoc_insertion_point(module_scope)
