@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <AvaloniaXaml Remove="Plugins\**" />
+    <Compile Remove="Plugins\**" />
+    <EmbeddedResource Remove="Plugins\**" />
+    <None Remove="Plugins\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove=".gitignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+    <PackageReference Include="System.Reactive" Version="5.0.0" />
+    <PackageReference Include="XamlNameReferenceGenerator" Version="1.5.1" />
+   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Messages\NP.Gidon.Messages\NP.Gidon.Messages.csproj" />
+    <ProjectReference Include="..\..\src\NP.Avalonia.Gidon.csproj" />
+    <ProjectReference Include="..\..\SubModules\NP.Avalonia.Visuals\src\NP.Avalonia.Visuals.csproj" />
+    <ProjectReference Include="..\..\SubModules\NP.DependencyInjection\src\NP.DependencyInjection.csproj" />
+    <ProjectReference Include="..\..\SubModules\NP.Grpc.RelayServer\Plugins\NP.Grpc.RelayClient\NP.Grpc.RelayClient.csproj" />
+    <ProjectReference Include="..\..\SubModules\NP.Grpc.RelayServer\Plugins\NP.Grpc.RelayServer\NP.Grpc.RelayServer.csproj" />
+    <ProjectReference Include="..\..\SubModules\NP.Grpc.RelayServer\Plugins\NP.GrpcConfig\NP.GrpcConfig.csproj" />
+    <ProjectReference Include="..\..\SubModules\NP.Grpc.RelayServer\src\NP.Grpc.CommonRelayInterfaces.csproj" />
+    <ProjectReference Include="..\..\SubModules\NP.IoCy\src\NP.IoCy.csproj" />
+    <ProjectReference Include="..\..\SubModules\NP.NLogAdapter\src\NP.NLogAdapter.csproj" />
+    <ProjectReference Include="..\..\SubModules\NP.ViewModelInterfaces\src\NP.ViewModelInterfaces.csproj" />
+    <ProjectReference Include="..\..\Tests\Common\Common.csproj" />
+    <ProjectReference Include="..\..\Tests\TestServiceInterfaces\TestServiceInterfaces.csproj" />
+  </ItemGroup>
+</Project>

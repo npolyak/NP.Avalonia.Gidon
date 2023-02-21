@@ -1,0 +1,78 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:utils="clr-namespace:NP.Utilities.PluginUtils;assembly=NP.Utilities"
+		xmlns:basicServices="clr-namespace:NP.Utilities.BasicServices;assembly=NP.Utilities"
+        xmlns:common="clr-namespace:Common;assembly=Common"
+		xmlns:np="https://np.com/visuals"
+		xmlns:local="clr-namespace:DockableAppImplantsDemo"
+        x:Class="DockableAppImplantsDemo.MainWindow"
+        Title="Implanted Python Windows Test"
+	    Width="850"
+	    Height="400"
+		MinHeight="150">
+	<Grid MinHeight="100">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition  MinWidth="300"/>
+			<ColumnDefinition Width="3"/>
+			<ColumnDefinition MinWidth="300" />
+		</Grid.ColumnDefinitions>
+
+		<np:ImplantedWindowHostContainer x:Name="TheWindowHostContainer1"
+						 Grid.Column="0"
+						 HorizontalAlignment="Stretch"
+						 VerticalAlignment="Stretch"
+						 MinHeight="200"
+						 MinWidth="300">
+			<np:WinProcessAttachedProperties.TheProcessInitInfoWithClient>
+				<np:MultiPlatformProcessInitInfoWithClient UniqueWindowHostId="DotPlot" TheRelayClient="{x:Static local:App.TheRelayClient}">
+					<np:MultiPlatformProcessInitInfoWithClient.WindowsProcInitInfo>
+						<np:ProcessInitInfo ExePath="pythonw" WorkingDir="../../../../../Tests/Apps/DotPyMatPlot/" InsertIdx="1">
+							<np:ProcessInitInfo.Args>
+								<x:String>DotPyMatPlot.py</x:String>
+							</np:ProcessInitInfo.Args>
+						</np:ProcessInitInfo>
+					</np:MultiPlatformProcessInitInfoWithClient.WindowsProcInitInfo>
+					<np:MultiPlatformProcessInitInfoWithClient.LinuxProcInitInfo>
+						<np:ProcessInitInfo ExePath="python3" WorkingDir="../../../../../Tests/Apps/DotPyMatPlot/" InsertIdx="1">
+							<np:ProcessInitInfo.Args>
+								<x:String>DotPyMatPlot.py</x:String>
+							</np:ProcessInitInfo.Args>
+						</np:ProcessInitInfo>
+					</np:MultiPlatformProcessInitInfoWithClient.LinuxProcInitInfo>
+				</np:MultiPlatformProcessInitInfoWithClient>
+			</np:WinProcessAttachedProperties.TheProcessInitInfoWithClient>
+		</np:ImplantedWindowHostContainer>
+
+		<GridSplitter VerticalAlignment="Stretch"
+					  HorizontalAlignment="Stretch"
+					  Background="Black"
+					  Grid.Column="1"/>
+
+
+		<np:ImplantedWindowHostContainer x:Name="TheWindowHostContainer2"
+						 Grid.Column="2"
+						 HorizontalAlignment="Stretch"
+						 VerticalAlignment="Stretch"
+						 MinHeight="200"
+						 MinWidth="300">
+			<np:WinProcessAttachedProperties.TheProcessInitInfoWithClient>
+				<np:MultiPlatformProcessInitInfoWithClient UniqueWindowHostId="SinusoidPlot" TheRelayClient="{x:Static local:App.TheRelayClient}">
+					<np:MultiPlatformProcessInitInfoWithClient.WindowsProcInitInfo>
+						<np:ProcessInitInfo ExePath="pythonw" WorkingDir="../../../../../Tests/Apps/SinusoidPyMatPlot/" InsertIdx="1">
+							<np:ProcessInitInfo.Args>
+								<x:String>SinusoidPyMatPlot.py</x:String>
+							</np:ProcessInitInfo.Args>
+						</np:ProcessInitInfo>
+					</np:MultiPlatformProcessInitInfoWithClient.WindowsProcInitInfo>
+					<np:MultiPlatformProcessInitInfoWithClient.LinuxProcInitInfo>
+						<np:ProcessInitInfo ExePath="python3" WorkingDir="../../../../../Tests/Apps/SinusoidPyMatPlot/" InsertIdx="1">
+							<np:ProcessInitInfo.Args>
+								<x:String>SinusoidPyMatPlot.py</x:String>
+							</np:ProcessInitInfo.Args>
+						</np:ProcessInitInfo>
+					</np:MultiPlatformProcessInitInfoWithClient.LinuxProcInitInfo>
+				</np:MultiPlatformProcessInitInfoWithClient>
+			</np:WinProcessAttachedProperties.TheProcessInitInfoWithClient>
+		</np:ImplantedWindowHostContainer>
+	</Grid>
+</Window>
