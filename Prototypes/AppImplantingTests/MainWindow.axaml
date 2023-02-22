@@ -103,11 +103,11 @@
 
 
 		<np:ImplantedWindowHostContainer x:Name="TheWindowHostContainer2"
-						 Grid.Column="2"
-						 HorizontalAlignment="Stretch"
-						 VerticalAlignment="Stretch"
-						 MinHeight="200"
-						 MinWidth="300">
+										 Grid.Column="2"
+										 HorizontalAlignment="Stretch"
+										 VerticalAlignment="Stretch"
+										 MinHeight="200"
+										 MinWidth="300">
 			<np:WinProcessAttachedProperties.TheProcessInitInfoWithClient>
 				<np:MultiPlatformProcessInitInfoWithClient UniqueWindowHostId="SinusoidPlot" TheRelayClient="{x:Static local:App.TheRelayClient}">
 					<np:MultiPlatformProcessInitInfoWithClient.WindowsProcInitInfo>

@@ -1,5 +1,7 @@
+from ctypes import alignment
 import sys
 import time
+from tkinter import TOP
 
 import numpy as np
 
@@ -15,8 +17,8 @@ class ApplicationWindow(QtWidgets.QMainWindow):
         self._main = QtWidgets.QWidget()
         self.setCentralWidget(self._main)
         layout = QtWidgets.QVBoxLayout(self._main)
-
-        canvas = FigureCanvas(Figure(figsize=(5, 3)))
+        layout.setContentsMargins(0,0,0,0)
+        canvas = FigureCanvas()
         layout.addWidget(canvas)
 
         np.random.seed(19680801)  # seed the random number generator.

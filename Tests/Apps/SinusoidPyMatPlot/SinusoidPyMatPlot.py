@@ -15,11 +15,13 @@ class ApplicationWindow(QtWidgets.QMainWindow):
         self._main = QtWidgets.QWidget()
         self.setCentralWidget(self._main)
         layout = QtWidgets.QVBoxLayout(self._main)
+        layout.setContentsMargins(0,0,0,0)
 
         canvas = FigureCanvas(Figure(figsize=(5, 3)))
         layout.addWidget(canvas)
 
         self._ax = canvas.figure.subplots()
+
         t = np.linspace(0, 10, 101)
 
         #set up a line2d

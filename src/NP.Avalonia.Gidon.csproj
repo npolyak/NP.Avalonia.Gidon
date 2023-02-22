@@ -22,6 +22,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Remove="WinProcessAttachedProperties.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="System.Reactive" Version="5.0.0" />
 	</ItemGroup>
 
