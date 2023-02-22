@@ -38,3 +38,11 @@
 /Tests/Apps/SimplePyMatPlot/__pycache__
 *.user
 /Tests/Apps/SinusoidPyMatPlot/__pycache__
+/Messages/NP.Gidon.Messages/bin/Release/net6.0
+/Prototypes/BroadcastClientTest/bin/Release/net6.0/Plugins/Services/NP.GrpcConfig
+/Prototypes/SubscribingClientTest/bin/Release/net6.0/Plugins/Services/NP.GrpcConfig
+/Tests/Common/bin/Release/net6.0
+/Tests/TestServiceInterfaces/bin/Release/net6.0
+/src/bin/Release/net6.0/NP.Avalonia.Gidon.deps.json
+/src/bin/Release/net6.0/NP.Avalonia.Gidon.dll
+/src/bin/Release/net6.0/NP.Avalonia.Gidon.pdb

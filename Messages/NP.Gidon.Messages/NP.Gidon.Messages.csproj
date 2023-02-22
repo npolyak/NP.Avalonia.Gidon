@@ -4,6 +4,15 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<Version>1.0.0</Version>
+		<Authors>Nick Polyak, Ph. D.</Authors>
+		<Company>AWebPros</Company>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Authors>Nick Polyak Ph. D.</Authors>
+		<Description>Grpc Relay Messages</Description>
+		<Copyright>Nick Polyak 2023</Copyright>
+		<PackageTags>Grpc Relay Messages</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -13,14 +22,17 @@
 	  </PackageReference>
 	</ItemGroup>
 
-	<ItemGroup>
+	<ItemGroup Condition="'$(Configuration)'=='Debug'">
 		<ProjectReference Include="$(SolutionDir)..\..\SubModules\NP.DependencyInjection\src\NP.DependencyInjection.csproj" />
 		<ProjectReference Include="$(SolutionDir)..\..\SubModules\NP.Protobuf\src\NP.Protobuf.csproj" />
 	</ItemGroup>
 
+	<ItemGroup Condition="'$(Configuration)'=='Release'">
+		<PackageReference Include="NP.DependencyInjection" Version="1.0.9" />
+		<PackageReference Include="NP.Protobuf" Version="1.0.4" />
+	</ItemGroup>
+	
 	<ItemGroup>
 		<Protobuf Include="..\NP.Gidon.MessagesProtos\Messages.proto" Link="Messages.proto" GrpcServices="Both" ProtoRoot=".." />
 	</ItemGroup>
-
-
 </Project>

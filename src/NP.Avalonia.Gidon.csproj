@@ -3,9 +3,8 @@
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
 		<Nullable>enable</Nullable>
-		<PackageVersion>0.99.11</PackageVersion>
 		<PackageId>NP.Avalonia.Gidon</PackageId>
-		<Version>1.0.35</Version>
+		<Version>0.99.12</Version>
 		<Authors>Nick Polyak, Ph. D.</Authors>
 		<Company>AWebPros</Company>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -32,15 +31,14 @@
 	<ItemGroup Condition="'$(Configuration)'=='Debug'">
 		<ProjectReference Include="$(SolutionDir)..\..\SubModules\NP.Avalonia.UniDock\src\NP.Avalonia.UniDock.csproj" />
 		<ProjectReference Include="$(SolutionDir)..\..\SubModules\NP.IoCy\src\NP.IoCy.csproj" />
+		<ProjectReference Include="..\Messages\NP.Gidon.Messages\NP.Gidon.Messages.csproj" />
+		<ProjectReference Include="..\SubModules\NP.Grpc.RelayServer\src\NP.Grpc.CommonRelayInterfaces.csproj" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(Configuration)'=='Release'">
-		<PackageReference Include="NP.Avalonia.UniDock" Version="1.0.47" />
+		<PackageReference Include="NP.Avalonia.UniDock" Version="1.0.51" />
 		<PackageReference Include="NP.IoCy" Version="1.0.32" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <ProjectReference Include="..\Messages\NP.Gidon.Messages\NP.Gidon.Messages.csproj" />
-	  <ProjectReference Include="..\SubModules\NP.Grpc.RelayServer\src\NP.Grpc.CommonRelayInterfaces.csproj" />
+		<PackageReference Include="NP.Grpc.CommonRelayInterfaces" Version="1.0.5" />
+		<PackageReference Include="NP.Gidon.Messages" Version="1.0.0" />
 	</ItemGroup>
 </Project>

@@ -34,7 +34,7 @@ public class DockItemImplantedWindowHost : Decorator
     }
 
     public static readonly StyledProperty<IntPtr> ImplantedWindowHandleProperty =
-        AvaloniaProperty.Register<ImplantedWindowHostContainer, IntPtr>
+        AvaloniaProperty.Register<DockItemImplantedWindowHost, IntPtr>
         (
             nameof(ImplantedWindowHandle),
             IntPtr.Zero
