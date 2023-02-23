@@ -25,15 +25,15 @@ namespace DockableAppImplantsDemo
         {
             IContainerBuilderWithMultiCells<Enum> containerBuilder = 
                 new ContainerBuilder<Enum>();
-#if DEBUG
+//#if DEBUG
             containerBuilder.RegisterMultiCell(typeof(Enum), IoCKeys.Topics);
             containerBuilder.RegisterSingletonType<IGrpcConfig, GrpcConfig>();
             containerBuilder.RegisterSingletonType<IRelayServer, RelayServer>();
             containerBuilder.RegisterSingletonType<IRelayClient, RelayClient>();
             containerBuilder.RegisterAttributedStaticFactoryMethodsFromClass(typeof(MessagesTopicsGetter));
-#else
+//#else
 
-#endif
+//#endif
             IoCContainer = containerBuilder.Build();
 
             TheRelayServer = IoCContainer.Resolve<IRelayServer>();

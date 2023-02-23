@@ -4,7 +4,7 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<PackageId>NP.Avalonia.Gidon</PackageId>
-		<Version>0.99.12</Version>
+		<Version>0.99.13</Version>
 		<Authors>Nick Polyak, Ph. D.</Authors>
 		<Company>AWebPros</Company>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -13,6 +13,11 @@
 		<Copyright>Nick Polyak 2023</Copyright>
 		<PackageTags>IoC, MVVM</PackageTags>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <DebugType>embedded</DebugType>
+	  <Optimize>False</Optimize>
 	</PropertyGroup>
 
 	<ItemGroup>

@@ -5,6 +5,10 @@
     <Nullable>enable</Nullable>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>False</Optimize>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
   <ItemGroup>
     <AvaloniaXaml Remove="Plugins\**" />
     <Compile Remove="Plugins\**" />
@@ -20,11 +24,19 @@
     <PackageReference Include="XamlNameReferenceGenerator" Version="1.5.1" />
    </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\NP.Avalonia.Gidon.csproj" />
     <ProjectReference Include="..\..\SubModules\NP.Grpc.RelayServer\Plugins\NP.Grpc.RelayClient\NP.Grpc.RelayClient.csproj" />
     <ProjectReference Include="..\..\SubModules\NP.Grpc.RelayServer\Plugins\NP.Grpc.RelayServer\NP.Grpc.RelayServer.csproj" />
     <ProjectReference Include="..\..\SubModules\NP.Grpc.RelayServer\Plugins\NP.GrpcConfig\NP.GrpcConfig.csproj" />
     <ProjectReference Include="..\..\Tests\Common\Common.csproj" />
     <ProjectReference Include="..\..\Tests\TestServiceInterfaces\TestServiceInterfaces.csproj" />
   </ItemGroup>
+
+	<ItemGroup Condition="'$(Configuration)'=='Debug'">
+		<ProjectReference Include="..\..\src\NP.Avalonia.Gidon.csproj" />
+	</ItemGroup>
+
+
+	<ItemGroup Condition="'$(Configuration)'=='Release'">
+		<PackageReference Include="NP.Avalonia.Gidon" Version="0.99.13" />
+	</ItemGroup>
 </Project>

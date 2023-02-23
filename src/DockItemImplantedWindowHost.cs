@@ -61,7 +61,7 @@ public class DockItemImplantedWindowHost : Decorator
 
     private void _parentDockItem_DockItemDestroyedEvent(DockItem dockItem)
     {
-        
+        DestroyImplantedWindow();
     }
 
     #region ParentWindow Property
@@ -97,7 +97,7 @@ public class DockItemImplantedWindowHost : Decorator
 
     protected virtual void OnParentWindowClosed(object? sender, EventArgs e)
     {
-        DestroyImplantedWindow();
+        //DestroyImplantedWindow();
     }
 
     protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
