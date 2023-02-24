@@ -25,8 +25,6 @@
    </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SubModules\NP.Grpc.RelayServer\Plugins\NP.GrpcConfig\NP.GrpcConfig.csproj" />
-    <ProjectReference Include="..\..\Tests\Common\Common.csproj" />
-    <ProjectReference Include="..\..\Tests\TestServiceInterfaces\TestServiceInterfaces.csproj" />
   </ItemGroup>
 
 	<ItemGroup Condition="'$(Configuration)'=='Debug'">

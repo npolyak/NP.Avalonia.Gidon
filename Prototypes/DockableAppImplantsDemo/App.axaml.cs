@@ -62,7 +62,7 @@ namespace DockableAppImplantsDemo
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
                 desktop.MainWindow = new MainWindow();
-
+                desktop.ShutdownMode = Avalonia.Controls.ShutdownMode.OnMainWindowClose;
                 desktop.ShutdownRequested += Desktop_ShutdownRequested;
             }
 
