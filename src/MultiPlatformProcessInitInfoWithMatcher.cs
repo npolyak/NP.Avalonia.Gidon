@@ -3,9 +3,9 @@ using NP.Grpc.CommonRelayInterfaces;
 
 namespace NP.Avalonia.Gidon
 {
-    public class MultiPlatformProcessInitInfoWithClient : MultiPlatformProcessInitInfo
+    public class MultiPlatformProcessInitInfoWithMatcher: MultiPlatformProcessInitInfo
     {
-        public IRelayClient? TheRelayClient { get; set; }
+        public WindowHandleMatcher? TheWindowHandleMatcher { get; set; }
 
         public string? UniqueWindowHostId { get; set; }
     }

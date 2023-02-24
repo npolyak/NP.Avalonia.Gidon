@@ -1,11 +1,16 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using Avalonia.Threading;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using NP.Avalonia.Gidon;
 using NP.DependencyInjection.Interfaces;
 using NP.Gidon.Messages;
 using NP.Grpc.CommonRelayInterfaces;
+#if DEBUG
 using NP.Grpc.RelayClient;
 using NP.Grpc.RelayServer;
+#endif
 using NP.GrpcConfig;
 using NP.IoCy;
 using NP.Protobuf;
@@ -21,24 +26,28 @@ namespace DockableAppImplantsDemo
 
         public static IRelayClient TheRelayClient { get; }
 
+        public static WindowHandleMatcher TheWindowHandleMatcher { get; }
+
         static App()
         {
             IContainerBuilderWithMultiCells<Enum> containerBuilder = 
                 new ContainerBuilder<Enum>();
-//#if DEBUG
             containerBuilder.RegisterMultiCell(typeof(Enum), IoCKeys.Topics);
+            containerBuilder.RegisterAttributedStaticFactoryMethodsFromClass(typeof(MessagesTopicsGetter));
+#if DEBUG
             containerBuilder.RegisterSingletonType<IGrpcConfig, GrpcConfig>();
             containerBuilder.RegisterSingletonType<IRelayServer, RelayServer>();
             containerBuilder.RegisterSingletonType<IRelayClient, RelayClient>();
-            containerBuilder.RegisterAttributedStaticFactoryMethodsFromClass(typeof(MessagesTopicsGetter));
-//#else
-
-//#endif
+#else
+            containerBuilder.RegisterPluginsFromSubFolders("Plugins/Services");
+#endif
             IoCContainer = containerBuilder.Build();
 
             TheRelayServer = IoCContainer.Resolve<IRelayServer>();
 
             TheRelayClient = IoCContainer.Resolve<IRelayClient>();
+
+            TheWindowHandleMatcher = new WindowHandleMatcher(TheRelayClient);
         }
 
 

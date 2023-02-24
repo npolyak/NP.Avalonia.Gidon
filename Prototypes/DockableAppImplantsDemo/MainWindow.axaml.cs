@@ -14,9 +14,9 @@ namespace DockableAppImplantsDemo
         public MainWindow()
         {
             InitializeComponent();
-#if DEBUG
+//#if DEBUG
             this.AttachDevTools();
-#endif
+//#endif
 
             _clientSubscription =
                 App.TheRelayClient

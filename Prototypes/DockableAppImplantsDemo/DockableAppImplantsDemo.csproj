@@ -24,19 +24,46 @@
     <PackageReference Include="XamlNameReferenceGenerator" Version="1.5.1" />
    </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SubModules\NP.Grpc.RelayServer\Plugins\NP.Grpc.RelayClient\NP.Grpc.RelayClient.csproj" />
-    <ProjectReference Include="..\..\SubModules\NP.Grpc.RelayServer\Plugins\NP.Grpc.RelayServer\NP.Grpc.RelayServer.csproj" />
     <ProjectReference Include="..\..\SubModules\NP.Grpc.RelayServer\Plugins\NP.GrpcConfig\NP.GrpcConfig.csproj" />
     <ProjectReference Include="..\..\Tests\Common\Common.csproj" />
     <ProjectReference Include="..\..\Tests\TestServiceInterfaces\TestServiceInterfaces.csproj" />
+	<ProjectReference Include="..\..\src\NP.Avalonia.Gidon.csproj" />
   </ItemGroup>
 
 	<ItemGroup Condition="'$(Configuration)'=='Debug'">
-		<ProjectReference Include="..\..\src\NP.Avalonia.Gidon.csproj" />
+	    <ProjectReference Include="..\..\SubModules\NP.Grpc.RelayServer\Plugins\NP.Grpc.RelayClient\NP.Grpc.RelayClient.csproj" />
+        <ProjectReference Include="..\..\SubModules\NP.Grpc.RelayServer\Plugins\NP.Grpc.RelayServer\NP.Grpc.RelayServer.csproj" />
 	</ItemGroup>
 
 
 	<ItemGroup Condition="'$(Configuration)'=='Release'">
-		<PackageReference Include="NP.Avalonia.Gidon" Version="0.99.13" />
+		<PackageReference Include="NP.Grpc.RelayClient" Version="1.0.6" GeneratePathProperty="true">
+			<ExcludeAssets>All</ExcludeAssets>
+		</PackageReference>
+		<PackageReference Include="NP.Grpc.RelayServer" Version="1.0.7" GeneratePathProperty="true">
+			<ExcludeAssets>All</ExcludeAssets>
+		</PackageReference>
+		<!--<PackageReference Include="NP.Avalonia.Gidon" Version="0.99.14" />-->
 	</ItemGroup>
+
+	<ItemGroup>
+		<RelayClientFiles Include="$(PkgNP_Grpc_RelayClient)\lib\net6.0\**\*.*" />
+		<RelayServerFiles Include="$(PkgNP_Grpc_RelayServer)\lib\net6.0\**\*.*" />
+	</ItemGroup>
+	
+	<Target Name="CopyClientPluginFromNugetPackage" AfterTargets="Build" Condition="'$(Configuration)'=='Release'">
+		<PropertyGroup>
+			<ClientPluginFolder>$(TargetDir)\Plugins\Services\NP.Grpc.RelayClient</ClientPluginFolder>
+		</PropertyGroup>
+		<RemoveDir Directories="$(ClientPluginFolder)" />
+		<Copy SourceFiles="@(RelayClientFiles)" DestinationFolder="$(ClientPluginFolder)\%(RecursiveDir)" />
+	</Target>
+		
+	<Target Name="CopyServerPluginFromNugetPackage" AfterTargets="Build" Condition="'$(Configuration)'=='Release'">
+		<PropertyGroup>
+			<ServerPluginFolder>$(TargetDir)\Plugins\Services\NP.Grpc.RelayServer</ServerPluginFolder>
+		</PropertyGroup>
+		<RemoveDir Directories="$(ServerPluginFolder)" />
+		<Copy SourceFiles="@(RelayServerFiles)" DestinationFolder="$(ServerPluginFolder)\%(RecursiveDir)" />
+	</Target>
 </Project>

@@ -8,19 +8,20 @@ using NP.Gidon.Messages;
 using NP.Utilities;
 using System;
 using System.Reactive.Linq;
+using System.Threading.Tasks;
 
 namespace NP.Avalonia.Gidon;
 public class DockItemImplantedWindowHost : Decorator
 {
     #region ProcessInitInfo Styled Avalonia Property
-    public MultiPlatformProcessInitInfoWithClient ProcessInitInfo
+    public MultiPlatformProcessInitInfoWithMatcher ProcessInitInfo
     {
         get { return GetValue(ProcessInitInfoProperty); }
         set { SetValue(ProcessInitInfoProperty, value); }
     }
 
-    public static readonly StyledProperty<MultiPlatformProcessInitInfoWithClient> ProcessInitInfoProperty =
-        AvaloniaProperty.Register<DockItemImplantedWindowHost, MultiPlatformProcessInitInfoWithClient>
+    public static readonly StyledProperty<MultiPlatformProcessInitInfoWithMatcher> ProcessInitInfoProperty =
+        AvaloniaProperty.Register<DockItemImplantedWindowHost, MultiPlatformProcessInitInfoWithMatcher>
         (
             nameof(ProcessInitInfo)
         );
@@ -118,7 +119,7 @@ public class DockItemImplantedWindowHost : Decorator
         this.GetObservable(ProcessInitInfoProperty).Subscribe(OnProcessInitInfoChanged);
     }
 
-    private void OnProcessInitInfoChanged(MultiPlatformProcessInitInfoWithClient? processInitInfo)
+    private async void OnProcessInitInfoChanged(MultiPlatformProcessInitInfoWithMatcher? processInitInfo)
     {
         if (processInitInfo == null)
         {
@@ -132,13 +133,19 @@ public class DockItemImplantedWindowHost : Decorator
             "uniqueWindowHostId should not be null".ThrowProgError();
         }
 
-        this.OnMultiPlatformProcInitInfoChangedWithExtraParams(processInitInfo, new string[] { uniqueWindowHostId! });
+        processInitInfo.TheWindowHandleMatcher.WinInfoArrivedChangedEvent += OnWindowInfoArrived;
 
-        processInitInfo
-            .TheRelayClient!
-            .ObserveTopicStream<WindowInfo>(Topic.WindowInfoTopic)
-            .Where(winInfo => winInfo.UniqueWindowHostId == uniqueWindowHostId)
-            .Subscribe(winInfo => this.ImplantedWindowHandle = (nint) winInfo.WindowHandle);
+        this.OnMultiPlatformProcInitInfoChangedWithExtraParams(processInitInfo, new string[] { uniqueWindowHostId! });
+    }
+
+    private void OnWindowInfoArrived(WindowInfo winInfo)
+    {
+        if (this.ProcessInitInfo.UniqueWindowHostId != winInfo.UniqueWindowHostId)
+        {
+            return;
+        }
+
+        this.ImplantedWindowHandle = (nint) winInfo.WindowHandle;
     }
 
     private void OnImplantedWindowHandleChanged(IntPtr implantedWindowHandle)
@@ -149,7 +156,7 @@ public class DockItemImplantedWindowHost : Decorator
         }
         else
         {
-            this.Child = null;
+            //this.Child = null;
         }
     }
 
