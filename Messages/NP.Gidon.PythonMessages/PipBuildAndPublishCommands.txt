@@ -2,6 +2,8 @@ from https://packaging.python.org/en/latest/tutorials/packaging-projects/
 
 python.exe -m pip install --upgrade pip
 
+pip install twine
+
 py -m pip install --upgrade build
 
 py -m build
