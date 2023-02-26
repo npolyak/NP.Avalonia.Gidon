@@ -22,12 +22,15 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Messages_pb2.py" />
-    <Compile Include="Messages_pb2_grpc.py" />
+    <Compile Include="src\Messages_pb2.py" />
+    <Compile Include="src\Messages_pb2_grpc.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="generate_stubs.txt" />
-    <Content Include="Messages_pb2.pyi" />
+    <Content Include="src\Messages_pb2.pyi" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

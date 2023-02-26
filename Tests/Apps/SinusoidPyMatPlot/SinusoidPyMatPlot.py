@@ -28,7 +28,7 @@ class ApplicationWindow(QtWidgets.QMainWindow):
         self._line, = self._ax.plot(t, np.sin(t + time.time()))
 
 def main(argv):
-    sys.path.append(r'../../../Messages/NP.Gidon.PythonMessages')
+    sys.path.append(r'../../../Messages/NP.Gidon.PythonMessages/src')
 
     import Messages_pb2 as messages
 

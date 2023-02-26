@@ -6,7 +6,7 @@
     <ProjectHome>
     </ProjectHome>
     <StartupFile>SinusoidPyMatPlot.py</StartupFile>
-    <SearchPath>..\..\..\Messages\NP.Gidon.PythonMessages</SearchPath>
+    <SearchPath>..\..\..\Messages\NP.Gidon.PythonMessages\src</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>SinusoidPyMatPlot</Name>

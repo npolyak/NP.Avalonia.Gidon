@@ -1,0 +1,18 @@
+[project]
+name = "NP.Grpc.PythonMessages"
+version = "0.99.2"
+authors = [
+  { name="Nick Polya, Ph.D.", email="nick.polyak@verizon.net" }
+]
+description = "Python interface for the Relay Server Client"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/npolyak/NP.Avalonia.Gidon/tree/main/Messages/NP.Gidon.PythonMessages"
+"Bug Tracker" = "https://github.com/npolyak/NP.Avalonia.Gidon/issues"
