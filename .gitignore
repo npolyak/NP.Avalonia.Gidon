@@ -47,3 +47,12 @@
 /src/bin/Release/net6.0/NP.Avalonia.Gidon.dll
 /src/bin/Release/net6.0/NP.Avalonia.Gidon.pdb
 /Messages/NP.Gidon.MessagesProtos/bin/Release/net6.0
+/Messages/NP.Gidon.PythonMessages/src/NP.Grpc.PythonMessages.egg-info/top_level.txt
+/Messages/NP.Gidon.PythonMessages/src/NP.Grpc.PythonMessages.egg-info/SOURCES.txt
+/Messages/NP.Gidon.PythonMessages/src/NP.Grpc.PythonMessages.egg-info/PKG-INFO
+/Messages/NP.Gidon.PythonMessages/src/NP.Grpc.PythonMessages.egg-info/dependency_links.txt
+/Messages/NP.Gidon.PythonMessages/src/NP.Grpc.PythonMessages.egg-info/dependency_links.txt
+/Messages/NP.Gidon.PythonMessages/src/NP.Grpc.PythonMessages.egg-info
+/Messages/NP.Gidon.PythonMessages/dist/NP.Grpc.PythonMessages-0.99.2.tar.gz
+/Messages/NP.Gidon.PythonMessages/dist/NP.Grpc.PythonMessages-0.99.2-py3-none-any.whl
+/Messages/NP.Gidon.PythonMessages/dist

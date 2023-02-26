@@ -105,7 +105,7 @@ public class DockItemImplantedWindowHost : Decorator
     {
         ParentWindow = (Window)e.Root;
 
-        DockContentPresenter dockContentPresenter = (DockContentPresenter) e.Parent;
+        DockContentPresenter dockContentPresenter = (DockContentPresenter) this.Parent;
 
         ParentDockItem = dockContentPresenter.OwningDockItem;
 
